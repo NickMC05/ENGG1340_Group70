@@ -21,7 +21,8 @@ void Sprite::draw(int x, int y)
     {
         for (int j = 0; j < sWidth; j++)
         {
-            v[i+x][j+y] = pixel[i * sWidth + j];
+            if(pixel[i * sWidth + j] != 0)
+                v[i+y][j+x] = pixel[i * sWidth + j];
         }
     }
 }

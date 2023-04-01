@@ -51,6 +51,7 @@ void Game::update()
 void Game::draw()
 {
     vector<vector<int>> &graphic = State::graphic;
+    car->draw(40,35);
     for (int i = 0; i < 60; i++)
     {
         for (int j = 0; j < 100; j++)

@@ -1,13 +1,16 @@
 Game.o: Game.cpp Game.h
 	g++ -c Game.cpp -lncurses
 
-main.o: main.cpp Game.h
+Sprite.o: Sprite.cpp Sprite.h
+	g++ -c Sprite.cpp -lncurses
+
+main.o: main.cpp Game.h Sprite.h
 	g++ -c main.cpp -lncurses
 
-main: main.o Game.o
-	g++ main.o Game.o -o main -lncurses
+main: main.o Game.o Sprite.o
+	g++ main.o Game.o Sprite.o -o main -lncurses
 
 clean:
-	rm -f *.o main
+	rm -f main *.o
 
 .PHONY: clean

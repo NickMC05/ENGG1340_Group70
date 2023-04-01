@@ -1,6 +1,11 @@
 #include "Game.h"
 #include <ncurses.h>
 
+Game::Game()
+{
+    spr = new Sprite("test_image.txt");
+}
+
 void Game::run()
 {
     // Start curses mode
@@ -25,6 +30,7 @@ void Game::init()
 // Listen to user key input
 void Game::update()
 {
+
 }
 
 void Game::draw()

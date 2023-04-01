@@ -29,7 +29,6 @@ void Game::init()
     // Set color pairs
     init_pair(1, COLOR_RED, COLOR_RED);
     init_pair(2, COLOR_BLUE, COLOR_BLUE);
-    sprite = new Sprite("car.txt");
 }
 
 // Listen to user key input

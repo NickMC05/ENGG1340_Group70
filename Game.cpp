@@ -34,7 +34,6 @@ void Game::update()
 
 void Game::draw()
 {
-    spr->draw();
     refresh();
     wmove(window, 0, 0);
 }

@@ -45,6 +45,7 @@ void Game::init()
     init_pair(9, COLOR_BLACK, COLOR_BLACK);
 
     car = new Car();
+    background = new Background();
 }
 
 void Game::menu()
@@ -88,8 +89,9 @@ void Game::draw()
         }
     }
 
-    // draw functions
+        // draw functions
     car->draw(40, 40);
+    background->draw();
 
     // this will update all the pixels on the screen
     for (int i = 0; i < 60; i++)

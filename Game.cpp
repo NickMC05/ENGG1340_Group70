@@ -30,6 +30,13 @@ void Game::init()
     // Set color pairs
     init_pair(1, COLOR_RED, COLOR_RED);
     init_pair(2, COLOR_BLUE, COLOR_BLUE);
+    init_pair(3, COLOR_MAGENTA, COLOR_MAGENTA);
+    init_pair(4, COLOR_GREEN, COLOR_GREEN);
+    init_pair(5, COLOR_WHITE, COLOR_WHITE);
+    init_pair(6, COLOR_YELLOW, COLOR_YELLOW);
+    init_pair(9, COLOR_BLACK, COLOR_BLACK);
+
+    car = new Car();
 }
 
 void Game::menu()
@@ -43,6 +50,7 @@ void Game::update()
 
 void Game::draw()
 {
+<<<<<<< HEAD
     vector<vector<int>> &graphic = State::graphic;
     for (int i = 0; i < 60; i++)
     {
@@ -54,6 +62,9 @@ void Game::draw()
         }
         printw("\n");
     }
+=======
+    car->draw(80,35);
+>>>>>>> 0f9ae630350ca340bc5a16b69e3d134056d5fb99
     refresh();
     wmove(stdscr, 0, 0);
 }

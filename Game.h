@@ -2,7 +2,7 @@
 #define GAME_H
 
 #include <ncurses.h>
-#include "Sprite.h"
+#include "Car.h"
 
 class Game
 {
@@ -19,6 +19,8 @@ private:
     void end();
 
     bool gameRunning = true;
+
+    Car* car;
 };
 
 #endif

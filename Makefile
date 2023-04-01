@@ -6,3 +6,8 @@ main.o: main.cpp Game.h
 
 main: main.o Game.o
 	g++ main.o Game.o -o main -lncurses
+
+clean:
+	rm -f *.o main
+
+.PHONY: clean

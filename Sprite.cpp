@@ -20,21 +20,28 @@ void Sprite::draw(int x, int y)
     {
         for (int j = 0; j < sWidth; j++)
         {
-            if(pixel[i * sWidth + j] == 1)
+            if(pixel[i * sWidth + j] == 0)
+            {
+                attron(COLOR_PAIR(5));
+            }
+            else if(pixel[i * sWidth + j] == 1)
             {
                 attron(COLOR_PAIR(1));
             }
-            if(pixel[i * sWidth + j] == 2)
+            else if(pixel[i * sWidth + j] == 2)
             {
                 attron(COLOR_PAIR(2));
             }
-            if(pixel[i * sWidth + j] == 3)
+            else if(pixel[i * sWidth + j] == 3)
             {
                 attron(COLOR_PAIR(3));
             }
-            mvprintw(y,x,"  ");
+            else if(pixel[i * sWidth + j] == 9)
+            {
+                attron(COLOR_PAIR(9));
+            }
+            mvprintw(y+i,x+j*2,"  ");
         }
         printw("\n");
     }
-    
 }

@@ -29,6 +29,13 @@ void Game::init()
     // Set color pairs
     init_pair(1, COLOR_RED, COLOR_RED);
     init_pair(2, COLOR_BLUE, COLOR_BLUE);
+    init_pair(3, COLOR_MAGENTA, COLOR_MAGENTA);
+    init_pair(4, COLOR_GREEN, COLOR_GREEN);
+    init_pair(5, COLOR_WHITE, COLOR_WHITE);
+    init_pair(6, COLOR_YELLOW, COLOR_YELLOW);
+    init_pair(9, COLOR_BLACK, COLOR_BLACK);
+
+    car = new Car();
 }
 
 // Listen to user key input
@@ -39,16 +46,7 @@ void Game::update()
 
 void Game::draw()
 {
-    for (int i = 0; i < 40; i++)
-    {
-        for (int j = 0; j < 160; j++)
-        {
-            attron(COLOR_PAIR(i % 2 + 1));
-            printw(" ");
-            attroff(COLOR_PAIR(i % 2 + 1));
-        }
-        printw("\n");
-    }
+    car->draw(80,35);
     refresh();
     wmove(stdscr, 0, 0);
 }

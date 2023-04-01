@@ -3,17 +3,14 @@
 
 Game::Game()
 {
-    spr = new Sprite("test_image.txt");
+    sprite = new Sprite("test_image.txt");
 }
 
 void Game::run()
 {
-    // Initialize ncurses
-    window = initscr();
-    newwin(100, 320, 0, 0);
-    start_color();
-    //Start the game
+    // Start the game
     init();
+
     while (gameRunning)
     {
         update();
@@ -24,19 +21,36 @@ void Game::run()
 
 void Game::init()
 {
-    
+    // Initialize ncurses
+    initscr();
+
+    // Start color mode
+    start_color();
+
+    // Set color pairs
+    init_pair(1, COLOR_RED, COLOR_RED);
+    init_pair(2, COLOR_BLUE, COLOR_BLUE);
 }
 
 // Listen to user key input
 void Game::update()
 {
-
 }
 
 void Game::draw()
 {
+    for (int i = 0; i < 40; i++)
+    {
+        for (int j = 0; j < 160; j++)
+        {
+            attron(COLOR_PAIR(i % 2 + 1));
+            printw(" ");
+            attroff(COLOR_PAIR(i % 2 + 1));
+        }
+        printw("\n");
+    }
     refresh();
-    wmove(window, 0, 0);
+    wmove(stdscr, 0, 0);
 }
 
 void Game::end()

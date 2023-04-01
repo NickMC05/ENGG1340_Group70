@@ -18,7 +18,7 @@ private:
     void end();
 
     bool gameRunning = true;
-    Sprite *sprite;
+    Sprite *spr;
 };
 
 #endif

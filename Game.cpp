@@ -50,7 +50,6 @@ void Game::update()
 
 void Game::draw()
 {
-<<<<<<< HEAD
     vector<vector<int>> &graphic = State::graphic;
     for (int i = 0; i < 60; i++)
     {
@@ -62,9 +61,6 @@ void Game::draw()
         }
         printw("\n");
     }
-=======
-    car->draw(80,35);
->>>>>>> 0f9ae630350ca340bc5a16b69e3d134056d5fb99
     refresh();
     wmove(stdscr, 0, 0);
 }

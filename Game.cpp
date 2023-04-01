@@ -3,21 +3,23 @@
 
 void Game::run()
 {
-    init();
-}
-
-void Game::init()
-{
     // Start curses mode
     window = initscr();
     newwin(100, 320, 0, 0);
-    bool ctu = true;
-    while (ctu)
+    start_color();
+    //Start the game
+    init();
+    while (gameRunning)
     {
         update();
         draw();
     }
     end();
+}
+
+void Game::init()
+{
+    
 }
 
 // Listen to user key input

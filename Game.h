@@ -17,6 +17,7 @@ private:
     void end();
 
     WINDOW *window;
+    bool gameRunning = true;
     // Map map;
 };
 

@@ -9,8 +9,12 @@ Game::Game()
 
 void Game::run()
 {
+    // Initialize ncurses
+    // Start color mode
     initscr();
     start_color();
+    noecho();
+    nodelay(stdscr,true);
 
     // Create menu
     Menu menu;
@@ -27,10 +31,6 @@ void Game::run()
 
 void Game::init()
 {
-    // Initialize ncurses
-
-    // Start color mode
-
     // Set color pairs
     init_pair(1, COLOR_RED, COLOR_RED);
     init_pair(2, COLOR_BLUE, COLOR_BLUE);
@@ -48,14 +48,25 @@ void Game::menu()
 }
 
 // Listen to user key input
+// Logics will update here
 void Game::update()
 {
+    int ch = getch();
+    if(ch == 'q')
+    {
+        gameRunning = false;
+    }
 }
 
 void Game::draw()
 {
     vector<vector<int>> &graphic = State::graphic;
-    car->draw(40,35);
+
+    //draw functions
+    car->draw(40,40);
+
+
+    //this will update all the pixels on the screen
     for (int i = 0; i < 60; i++)
     {
         for (int j = 0; j < 100; j++)

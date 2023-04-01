@@ -10,8 +10,8 @@ Menu::Menu()
 {
 
 }
-
-int Menu::run() // 0 = play, 1 = exit
+// 0 = play, 1 = exit
+int Menu::run() 
 {
     printw("Before playing the game, please make sure that the terminal size is enough for the game to be printed.\n");
     printw("The minimum requirement of the terminal size is 200x60.\n");

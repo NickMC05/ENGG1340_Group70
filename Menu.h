@@ -5,7 +5,7 @@ class Menu
 {
 public:
     Menu();
-    void run();
+    int run();
     void loading_screen();
     void home_screen(int input, int select, int max_choice);
     void credits_screen();

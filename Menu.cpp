@@ -1,35 +1,18 @@
+#include "Menu.h"
+#include <ncurses.h>
 #include <sys/ioctl.h>
 #include <stdio.h>
 #include <cstdlib>
 #include <unistd.h>
 #include <locale.h>
-#include <ncurses.h>
 
-// Screen Size = 200x60
+Menu::Menu()
+{
 
-// Declaring screen function
-void loading_screen();
-void home_screen(int input, int select, int max_choice);
-void credits_screen();
+}
 
-
-
-// Menu
-int main() {
-
-    // Screen setup
-    system("clear"); erase();
-    setlocale(LC_ALL, "en_US.UTF-8");
-    initscr(); cbreak(); noecho();
-    keypad(stdscr, TRUE);
-
-    // Menu variables
-    int input;
-    int select = 1;
-    int current_page = 1; // home_screen, play, options, credits, exit
-    int max_choice = 4; // adjustable depends on how many choices
-
-    // Screen check to make sure the player is on optimized screen size
+void Menu::run()
+{
     printw("Before playing the game, please make sure that the terminal size is enough for the game to be printed.\n");
     printw("The minimum requirement of the terminal size is 200x60.\n");
     printw("Press any key to continue.");
@@ -44,10 +27,8 @@ int main() {
             printw("Current terminal size: %dx%d", w.ws_col, w.ws_row);
         }
     }
-
     loading_screen();
 
-    // Menu Screen
     while (true) {
 
         if (current_page == 1) {
@@ -92,14 +73,9 @@ int main() {
             break;
         }
     }
-    // End
-    endwin();
 }
 
-
-
-// Loading screen
-void loading_screen() {
+void Menu::loading_screen() {
     erase();
     mvprintw(27, 80, " _    ___   _   ___ ___ _  _  ____      ");
     mvprintw(28, 80, "| |  / _ \\ /_\\ |   \\_ _| \\| |/ ___| ");
@@ -120,7 +96,7 @@ void loading_screen() {
 }
 
 // Home screen
-void home_screen(int input, int select, int max_choice) {
+void Menu::home_screen(int input, int select, int max_choice) {
     erase();
     
     // Title
@@ -208,7 +184,7 @@ void home_screen(int input, int select, int max_choice) {
 }
 
 // Credits screen
-void credits_screen() {
+void Menu::credits_screen() {
     erase();
 
     mvprintw(2,20,"______________________________________  ._______________________");

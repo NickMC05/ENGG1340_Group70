@@ -1,5 +1,3 @@
-//
-
 #ifndef STATE_H
 #define STATE_H
 
@@ -28,7 +26,5 @@ public:
     static list<float> listLapTimes; // List of previous lap times
     static float fCurrentLapTime;    // Current lap time
 };
-
-vector<vector<int>> State::graphic = vector<vector<int>>(60, vector<int>(100, 5));
 
 #endif

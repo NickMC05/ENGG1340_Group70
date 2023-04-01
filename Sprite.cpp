@@ -1,5 +1,5 @@
 #include "Sprite.h"
-
+#include "State.h"
 #include <fstream>
 
 Sprite::Sprite(const char* path)
@@ -16,32 +16,12 @@ Sprite::Sprite(const char* path)
 
 void Sprite::draw(int x, int y)
 {
+    vector<vector<int>> &v = State::graphic;
     for (int i = 0; i < sHeight; i++)
     {
         for (int j = 0; j < sWidth; j++)
         {
-            if(pixel[i * sWidth + j] == 0)
-            {
-                attron(COLOR_PAIR(5));
-            }
-            else if(pixel[i * sWidth + j] == 1)
-            {
-                attron(COLOR_PAIR(1));
-            }
-            else if(pixel[i * sWidth + j] == 2)
-            {
-                attron(COLOR_PAIR(2));
-            }
-            else if(pixel[i * sWidth + j] == 3)
-            {
-                attron(COLOR_PAIR(3));
-            }
-            else if(pixel[i * sWidth + j] == 9)
-            {
-                attron(COLOR_PAIR(9));
-            }
-            mvprintw(y+i,x+j*2,"  ");
+            v[i+x][j+y] = pixel[i * sWidth + j];
         }
-        printw("\n");
     }
 }

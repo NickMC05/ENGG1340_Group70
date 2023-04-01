@@ -4,10 +4,10 @@
 
 void Background::draw()
 {
-    vector<vector<int>> &graphic = State::graphic;
-    for (int y = 0; y < 30; y++)
+    vector<vector<int> > &graphic = State::graphic;
+    for (int y = 0; y < State::HEIGHT / 2; y++)
     {
-        for (int x = 0; x < 100; x++)
+        for (int x = 0; x < State::WIDTH; x++)
         {
 
             graphic[y][x] = 1;

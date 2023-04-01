@@ -17,12 +17,12 @@ void Game::run()
     nodelay(stdscr, true);
 
     // Create menu
-    // Menu menu;
-    // if (menu.run())
-    // {
-    //     end();
-    //     return;
-    // };
+    Menu menu;
+    if (menu.run())
+    {
+        end();
+        return;
+    };
     // Start the game
     init();
     while (gameRunning)
@@ -81,22 +81,22 @@ void Game::draw()
 {
     vector<vector<int>> &graphic = State::graphic;
     //draw all white
-    for (int i = 0; i < 60; i++)
+    for (int i = 0; i < State::HEIGHT; i++)
     {
-        for (int j = 0; j < 100; j++)
+        for (int j = 0; j < State::WIDTH; j++)
         {
             graphic[i][j] = 5;
         }
     }
 
-        // draw functions
-    car->draw(40, 40);
+    // draw functions
+    //car->draw(40, 20);
     background->draw();
 
     // this will update all the pixels on the screen
-    for (int i = 0; i < 60; i++)
+    for (int i = 0; i < State::HEIGHT; i++)
     {
-        for (int j = 0; j < 100; j++)
+        for (int j = 0; j < State::WIDTH; j++)
         {
             attron(COLOR_PAIR(graphic[i][j]));
             printw("  ");

@@ -7,12 +7,9 @@ Game::Game()
 
 void Game::run()
 {
-    // Start curses mode
-    window = initscr();
-    newwin(100, 320, 0, 0);
-    start_color();
-    //Start the game
+    // Start the game
     init();
+
     while (gameRunning)
     {
         update();
@@ -23,23 +20,35 @@ void Game::run()
 
 void Game::init()
 {
-    spr = new Sprite("test_image.txt");
+    sprite = new Sprite("test_image.txt");
 }
 
 // Listen to user key input
 void Game::update()
 {
-
 }
 
 void Game::draw()
 {
-    spr->draw();
+    sprite->draw();
+    for (int i = 0; i < 40; i++)
+    {
+        for (int j = 0; j < 160; j++)
+        {
+            attron(COLOR_PAIR(i % 2 + 1));
+            printw(" ");
+            attroff(COLOR_PAIR(i % 2 + 1));
+        }
+        printw("\n");
+    }
     refresh();
-    wmove(window, 0, 0);
+    wmove(stdscr, 0, 0);
 }
 
 void Game::end()
 {
+    // todo: savefile
+
+    // end
     endwin();
 }

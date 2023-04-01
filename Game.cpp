@@ -9,7 +9,7 @@ void Game::run()
 {
     // Start the game
     init();
-
+    menu();
     while (gameRunning)
     {
         update();
@@ -30,6 +30,10 @@ void Game::init()
     init_pair(1, COLOR_RED, COLOR_RED);
     init_pair(2, COLOR_BLUE, COLOR_BLUE);
     sprite = new Sprite("test_image.txt");
+}
+
+void Game::menu()
+{
 }
 
 // Listen to user key input

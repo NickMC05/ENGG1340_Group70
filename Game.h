@@ -13,6 +13,7 @@ public:
 
 private:
     void init();
+    void menu();
     void update();
     void draw();
     void end();

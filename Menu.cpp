@@ -24,6 +24,8 @@ int Menu::run()
         if (w.ws_row >= 60 && w.ws_col >= 200) { // Scrren size is enough
             break;
         } else { // Not yet
+            printw("Before playing the game, please make sure that the terminal size is enough for the game to be printed.\n");
+            printw("The minimum requirement of the terminal size is 200x60.\n\n");
             printw("Current terminal size: %dx%d", w.ws_col, w.ws_row);
         }
     }
@@ -68,7 +70,7 @@ int Menu::run()
         } else if (current_page == 4) {
             credits_screen();
             while ((input = getch()) != KEY_F(1)) {
-                break;
+                if (input == 10) {break;}
             }
             current_page = 1;
         } else if (current_page == 5) {
@@ -241,7 +243,7 @@ void Menu::credits_screen() {
     mvprintw(56,35,"             __/ |                                                       ");
     mvprintw(57,35,"            |___/                                                        ");
 
-    mvprintw(59,180,"Press any key to return.");
+    mvprintw(59,170,"Press ENTER to return.");
 
     move(0,0); refresh();
 }

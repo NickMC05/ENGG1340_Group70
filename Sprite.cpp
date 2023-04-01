@@ -13,8 +13,8 @@ Sprite::Sprite(const char* path)
     }
 }
 
-void draw(WINDOW *win)
+void Sprite::draw()
 {
     string t = "Hello this is example sprite";
-    wprintw(win, t.c_str());
+    printw(t.c_str());
 }

@@ -3,7 +3,6 @@
 
 Game::Game()
 {
-    spr = new Sprite("test_image.txt");
 }
 
 void Game::run()
@@ -24,7 +23,7 @@ void Game::run()
 
 void Game::init()
 {
-    
+    spr = new Sprite("test_image.txt");
 }
 
 // Listen to user key input
@@ -35,6 +34,7 @@ void Game::update()
 
 void Game::draw()
 {
+    spr->draw();
     refresh();
     wmove(window, 0, 0);
 }

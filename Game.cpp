@@ -8,7 +8,7 @@ void Game::run()
 
 void Game::init()
 {
-    // Start curses mode
+    // Initialize ncurses
     window = initscr();
     newwin(100, 320, 0, 0);
     bool ctu = true;
@@ -33,5 +33,8 @@ void Game::draw()
 
 void Game::end()
 {
+    // todo: savefile
+
+    // end
     endwin();
 }

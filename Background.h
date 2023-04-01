@@ -3,6 +3,8 @@
 
 class Background
 {
+public:
+    void draw();
 };
 
 #endif

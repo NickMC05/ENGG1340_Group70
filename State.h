@@ -3,26 +3,32 @@
 #ifndef STATE_H
 #define STATE_H
 
+#include <string>
 #include <vector>
 #include <utility>
 #include <list>
 using namespace std;
 
-struct State
+class State
 {
-    float carDistance = 0.0f;    // Distance car has travelled around track
-    float carCurvature = 0.0f;   // Current track curvature, lerped between track sections
-    float trackCurvature = 0.0f; // Accumulation of track curvature
-    float trackDistance = 0.0f;  // Total distance of track
+public:
+    static vector<vector<int>> graphic;
 
-    float carPosition = 0.0f;     // Current car position
-    float playerCurvature = 0.0f; // Accumulation of player curvature
-    float carSpeed = 0.0f;        // Current player speed
+    static float carDistance;    // Distance car has travelled around track
+    static float carCurvature;   // Current track curvature, lerped between track sections
+    static float trackCurvature; // Accumulation of track curvature
+    static float trackDistance;  // Total distance of track
 
-    vector<pair<float, float>> vecTrack; // Track sections, sharpness of bend, length of section
+    static float carPosition;     // Current car position
+    static float playerCurvature; // Accumulation of player curvature
+    static float carSpeed;        // Current player speed
 
-    list<float> listLapTimes; // List of previous lap times
-    float fCurrentLapTime;    // Current lap time
+    static vector<pair<float, float>> vecTrack; // Track sections, sharpness of bend, length of section
+
+    static list<float> listLapTimes; // List of previous lap times
+    static float fCurrentLapTime;    // Current lap time
 };
+
+vector<vector<int>> State::graphic = vector<vector<int>>(60, vector<int>(100, 5));
 
 #endif

@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <ncurses.h>
+#include "State.h"
 
 Game::Game()
 {
@@ -38,18 +39,18 @@ void Game::menu()
 // Listen to user key input
 void Game::update()
 {
-    
 }
 
 void Game::draw()
 {
-    for (int i = 0; i < 40; i++)
+    vector<vector<int>> &graphic = State::graphic;
+    for (int i = 0; i < 60; i++)
     {
-        for (int j = 0; j < 160; j++)
+        for (int j = 0; j < 100; j++)
         {
-            attron(COLOR_PAIR(i % 2 + 1));
-            printw(" ");
-            attroff(COLOR_PAIR(i % 2 + 1));
+            attron(COLOR_PAIR(graphic[i][j]));
+            printw("  ");
+            attroff(COLOR_PAIR(graphic[i][j]));
         }
         printw("\n");
     }

@@ -1,5 +1,5 @@
 main: main.o Game.o Car.o Background.o Sprite.o
-	g++ main.o Game.o Car.o Background.o Sprite.o -o main -lncurses
+	g++ -std=c++11 main.o Game.o Car.o Background.o Sprite.o -o main -lncurses
 Game.o: Game.cpp Game.h
 	g++ -std=c++11 -c Game.cpp -lncurses
 Sprite.o: Sprite.cpp Sprite.h

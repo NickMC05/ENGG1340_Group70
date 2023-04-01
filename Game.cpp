@@ -14,11 +14,15 @@ void Game::run()
     initscr();
     start_color();
     noecho();
-    nodelay(stdscr,true);
+    nodelay(stdscr, true);
 
     // Create menu
     Menu menu;
-    menu.run();
+    if (menu.run())
+    {
+        end();
+        return;
+    };
     // Start the game
     init();
     while (gameRunning)
@@ -52,7 +56,7 @@ void Game::menu()
 void Game::update()
 {
     int ch = getch();
-    if(ch == 'q')
+    if (ch == 'q')
     {
         gameRunning = false;
     }
@@ -84,11 +88,10 @@ void Game::draw()
         }
     }
 
-    //draw functions
-    car->draw(40,40);
+    // draw functions
+    car->draw(40, 40);
 
-
-    //this will update all the pixels on the screen
+    // this will update all the pixels on the screen
     for (int i = 0; i < 60; i++)
     {
         for (int j = 0; j < 100; j++)

@@ -9,8 +9,14 @@ class Car
 public:
     Car();
     void draw(int x, int y);
+    void turnLeft();
+    void turnRight();
+    void turnStraight();
 private:
-    Sprite *texture;
+    Sprite *straight;
+    Sprite *left;
+    Sprite *right;
+    int dir = 0;
 };
 
 #endif

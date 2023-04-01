@@ -56,11 +56,33 @@ void Game::update()
     {
         gameRunning = false;
     }
+
+    //control car
+    if(ch == 'a')
+    {
+        car->turnLeft();
+    }
+    else if(ch == 'd')
+    {
+        car->turnRight();
+    }
+    else if(ch == 'w')
+    {
+        car->turnStraight();
+    }
 }
 
 void Game::draw()
 {
     vector<vector<int>> &graphic = State::graphic;
+    //draw all white
+    for (int i = 0; i < 60; i++)
+    {
+        for (int j = 0; j < 100; j++)
+        {
+            graphic[i][j] = 5;
+        }
+    }
 
     //draw functions
     car->draw(40,40);

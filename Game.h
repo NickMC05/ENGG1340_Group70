@@ -2,14 +2,14 @@
 #define GAME_H
 
 #include <ncurses.h>
+#include "Sprite.h"
 
 class Game
 {
 
 public:
-    Game(){};
+    Game();
     void run();
-
 private:
     void init();
     void update();
@@ -17,7 +17,8 @@ private:
     void end();
 
     WINDOW *window;
-    // Map map;
+    bool gameRunning = true;
+    Sprite *spr;
 };
 
 #endif

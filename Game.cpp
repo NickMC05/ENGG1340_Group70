@@ -1,18 +1,20 @@
 #include "Game.h"
 #include <ncurses.h>
 
-void Game::run()
+Game::Game()
 {
-    init();
+    spr = new Sprite("test_image.txt");
 }
 
-void Game::init()
+void Game::run()
 {
     // Initialize ncurses
     window = initscr();
     newwin(100, 320, 0, 0);
-    bool ctu = true;
-    while (ctu)
+    start_color();
+    //Start the game
+    init();
+    while (gameRunning)
     {
         update();
         draw();
@@ -20,9 +22,15 @@ void Game::init()
     end();
 }
 
+void Game::init()
+{
+    
+}
+
 // Listen to user key input
 void Game::update()
 {
+
 }
 
 void Game::draw()

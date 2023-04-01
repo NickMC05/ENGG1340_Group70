@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Menu.h"
 #include <ncurses.h>
 #include "State.h"
 
@@ -8,9 +9,14 @@ Game::Game()
 
 void Game::run()
 {
+    initscr();
+    start_color();
+
+    // Create menu
+    Menu menu;
+    menu.run();
     // Start the game
     init();
-    menu();
     while (gameRunning)
     {
         update();
@@ -22,10 +28,8 @@ void Game::run()
 void Game::init()
 {
     // Initialize ncurses
-    initscr();
 
     // Start color mode
-    start_color();
 
     // Set color pairs
     init_pair(1, COLOR_RED, COLOR_RED);

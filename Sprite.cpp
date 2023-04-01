@@ -15,4 +15,6 @@ Sprite::Sprite(const char* path)
 
 void draw(WINDOW *win)
 {
+    string t = "Hello this is example sprite";
+    wprintw(win, t.c_str());
 }

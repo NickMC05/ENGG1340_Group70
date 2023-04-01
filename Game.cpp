@@ -29,7 +29,6 @@ void Game::init()
     // Set color pairs
     init_pair(1, COLOR_RED, COLOR_RED);
     init_pair(2, COLOR_BLUE, COLOR_BLUE);
-    sprite = new Sprite("test_image.txt");
 }
 
 void Game::menu()
@@ -39,11 +38,11 @@ void Game::menu()
 // Listen to user key input
 void Game::update()
 {
+    
 }
 
 void Game::draw()
 {
-    sprite->draw();
     for (int i = 0; i < 40; i++)
     {
         for (int j = 0; j < 160; j++)

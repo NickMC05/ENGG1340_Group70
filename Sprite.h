@@ -10,7 +10,7 @@ class Sprite
 {
 public:
     Sprite(const char* path);
-    void draw();
+    void draw(int x, int y);
 private:
     int sHeight, sWidth;
     vector<int> pixel;

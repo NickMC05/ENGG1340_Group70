@@ -14,7 +14,7 @@ Sprite::Sprite(const char* path)
     }
 }
 
-void Sprite::draw()
+void Sprite::draw(int x, int y)
 {
     for (int i = 0; i < sHeight; i++)
     {
@@ -32,7 +32,7 @@ void Sprite::draw()
             {
                 attron(COLOR_PAIR(3));
             }
-            printw("  ");
+            mvprintw(y,x,"  ");
         }
         printw("\n");
     }

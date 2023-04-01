@@ -11,7 +11,7 @@ Menu::Menu()
 
 }
 
-void Menu::run()
+int Menu::run() // 0 = play, 1 = exit
 {
     printw("Before playing the game, please make sure that the terminal size is enough for the game to be printed.\n");
     printw("The minimum requirement of the terminal size is 200x60.\n");
@@ -36,17 +36,17 @@ void Menu::run()
             home_screen(input, select, max_choice);
             while ((input = getch()) != KEY_F(1)) {
                 // Receiving input
-                if (input == 97 || input == 119 || input == 259 || input == 260) { // down
+                if (input == 97 || input == 119 || input == 259 || input == 260) { // Down
                     select -= 1;
-                } else if (input == 100 || input == 115 || input == 258 || input == 261) { // up
+                } else if (input == 100 || input == 115 || input == 258 || input == 261) { // Up
                     select += 1;
-                } else if (input == 10) { // enter
+                } else if (input == 10) { // Enter
                     if (select == 1) {
-                        current_page = 1; // change to play
+                        current_page = 2;
                     } else if (select == 2) {
                         current_page = 1; // change to options
                     } else if (select == 3) {
-                        current_page = 4; // change to credits
+                        current_page = 4;
                     } else if (select == 4) {
                         current_page = 5;
                     } 
@@ -62,6 +62,9 @@ void Menu::run()
                 // Screen
                 home_screen(input, select, max_choice);
             }
+        } else if (current_page == 2) {
+            erase();
+            return 0;
         } else if (current_page == 4) {
             credits_screen();
             while ((input = getch()) != KEY_F(1)) {
@@ -70,9 +73,10 @@ void Menu::run()
             current_page = 1;
         } else if (current_page == 5) {
             erase();
-            break;
+            return 1;
         }
     }
+    return 1;
 }
 
 void Menu::loading_screen() {

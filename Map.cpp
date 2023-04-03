@@ -2,15 +2,17 @@
 
 int main() {
     initscr();
-    start_color();
-    noecho();
-    nodelay(stdscr, true);
+    //start_color();
+    //noecho();
+    //nodelay(stdscr, true);
 
-    for (int y = 0; y < 200/2; y++) {
+    for (int y = 0; y < 50/2; y++) {
         for (int x = 0; x < 200; x++) {
 
+            float fPerspective = (float)y / (50 / 2.0f);
+
             float fMiddlePoint = 0.5f;
-            float fRoadWidth = 0.6f;
+            float fRoadWidth = 0.1f + fPerspective * 0.8f;
             float fClipWidth = fRoadWidth * 0.15f;
 
             fRoadWidth *= 0.5f;
@@ -20,7 +22,7 @@ int main() {
             int nRightClip = (fMiddlePoint + fRoadWidth) * 200;
             int nRightGrass = (fMiddlePoint + fRoadWidth + fClipWidth) * 200;
 
-            int nRow = 200/2 + y;
+            int nRow = 50/2 + y;
 
             if (x >= 0 && x < nLeftGrass) {
                 mvprintw(nRow, x, "|");
@@ -41,8 +43,9 @@ int main() {
         }
     }
 
-    getch(); // Wait for user input
+    refresh();
+    getch();
 
-    endwin(); // Clean up ncurses
+    endwin();
     return 0;
 }

@@ -2,9 +2,18 @@
 
 int main() {
     initscr();
-    //start_color();
+    start_color();
     //noecho();
     //nodelay(stdscr, true);
+    
+    // Set color pairs (still not sure how to use init_pair from other scripts)
+    init_pair(1, COLOR_RED, COLOR_RED);
+    init_pair(2, COLOR_BLUE, COLOR_BLUE);
+    init_pair(3, COLOR_MAGENTA, COLOR_MAGENTA);
+    init_pair(4, COLOR_GREEN, COLOR_GREEN);
+    init_pair(5, COLOR_WHITE, COLOR_WHITE);
+    init_pair(6, COLOR_YELLOW, COLOR_YELLOW);
+    init_pair(9, COLOR_BLACK, COLOR_BLACK);
 
     for (int y = 0; y < 50/2; y++) {
         for (int x = 0; x < 200; x++) {
@@ -25,19 +34,29 @@ int main() {
             int nRow = 50/2 + y;
 
             if (x >= 0 && x < nLeftGrass) {
-                mvprintw(nRow, x, "|");
+                attron(COLOR_PAIR(4));
+                mvprintw(nRow, x, " ");
+                attroff(COLOR_PAIR(4));
             }
             if (x >= nLeftGrass && x < nLeftClip) {
-                mvprintw(nRow, x, "#");
+                attron(COLOR_PAIR(1));
+                mvprintw(nRow, x, " ");
+                attroff(COLOR_PAIR(1));
             }
             if (x >= nLeftClip && x < nRightClip) {
-                mvprintw(nRow, x, ".");
+                attron(COLOR_PAIR(5));
+                mvprintw(nRow, x, " ");
+                attroff(COLOR_PAIR(5));
             }
             if (x >= nRightClip && x < nRightGrass) {
-                mvprintw(nRow, x, "#");
+                attron(COLOR_PAIR(1));
+                mvprintw(nRow, x, " ");
+                attroff(COLOR_PAIR(1));
             }
             if (x >= nRightGrass && x < 200) {
-                mvprintw(nRow, x, "|");
+                attron(COLOR_PAIR(4));
+                mvprintw(nRow, x, " ");
+                attroff(COLOR_PAIR(4));
             }
 
         }

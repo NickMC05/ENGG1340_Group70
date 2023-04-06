@@ -1,5 +1,7 @@
-main: main.o Game.o Car.o Background.o Sprite.o State.o Menu.o
-	g++ -std=c++11 main.o State.o Game.o Car.o Background.o Sprite.o Menu.o -o main -lncurses
+main: main.o Game.o Car.o Background.o Sprite.o State.o Menu.o Map.o
+	g++ -std=c++11 main.o State.o Game.o Car.o Background.o Sprite.o Menu.o Map.o -o main -lncurses
+Map.o: Map.cpp Map.h
+	g++ -std=c++11 -c Map.cpp -lncurses
 Menu.o: Menu.cpp Menu.h
 	g++ -std=c++11 -c Menu.cpp -lncurses
 State.o: State.cpp State.h
@@ -12,4 +14,4 @@ main.o: main.cpp Game.h Sprite.h State.h Menu.h
 	g++ -std=c++11 -c main.cpp -lncurses
 clean:
 	rm -f main *.o
-.PHONY: clean
+.PHONY: cleans

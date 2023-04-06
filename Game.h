@@ -3,6 +3,7 @@
 
 #include <ncurses.h>
 #include "Car.h"
+#include "Map.h"
 
 class Game
 {
@@ -21,6 +22,7 @@ private:
     bool gameRunning = true;
 
     Car* car;
+    Map* map;
 };
 
 #endif

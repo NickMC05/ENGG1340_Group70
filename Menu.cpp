@@ -21,7 +21,7 @@ int Menu::run()
         struct winsize w;
         ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
         erase();
-        if (w.ws_row >= 50 && w.ws_col >= 200) { // Scrren size is enough
+        if (w.ws_row >= 60 && w.ws_col >= 200) { // Scrren size is enough
             break;
         } else { // Not yet
             printw("Before playing the game, please make sure that the terminal size is enough for the game to be printed.\n");

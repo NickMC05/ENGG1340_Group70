@@ -45,6 +45,8 @@ void Game::init()
     init_pair(9, COLOR_BLACK, COLOR_BLACK);
 
     car = new Car();
+    //Map(int width, int height)
+    map = new Map(100,60);
 }
 
 void Game::menu()
@@ -60,6 +62,8 @@ void Game::update()
     {
         gameRunning = false;
     }
+    float &localCarDistance = State::carDistance;
+    localCarDistance += 0.1f;
 }
 
 void Game::draw()
@@ -67,8 +71,10 @@ void Game::draw()
     vector<vector<int>> &graphic = State::graphic;
 
     // draw functions
-    car->draw(40, 40);
-
+    map->draw();
+    //car->draw(int x, int y)
+    car->draw(45, 40);
+    
     // this will update all the pixels on the screen
     for (int i = 0; i < 60; i++)
     {

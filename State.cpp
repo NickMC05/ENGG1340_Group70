@@ -1,6 +1,8 @@
 #include "State.h"
 
 vector<vector<int>> State::graphic = vector<vector<int>>(50, vector<int>(100, 5));
+char State::key = 'w';
+
 float State::carDistance = 0.0f;
 float State::carCurvature = 0.0f;    // Current track curvature, lerped between track sections
 float State::trackCurvature = 0.0f;  // Accumulation of track curvature

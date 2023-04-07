@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "Menu.h"
-#include <ncurses.h>
 #include "State.h"
+#include <ncurses.h>
 
 void Game::run()
 {
@@ -55,10 +55,14 @@ void Game::menu()
 // Logics will update here
 void Game::update()
 {
-    int ch = getch();
-    if (ch == 'q')
+    input = getch();
+    if (input == 'q')
     {
         gameRunning = false;
+    }
+    else if (input != ERR)
+    {
+        State::key = input;
     }
     float &localCarDistance = State::carDistance;
     localCarDistance += 0.1f;

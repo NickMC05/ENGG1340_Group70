@@ -24,6 +24,7 @@ private:
     Car *car;
     Background *background;
     Map *map;
+    char input;
 };
 
 #endif

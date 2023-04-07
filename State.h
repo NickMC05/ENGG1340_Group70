@@ -11,6 +11,7 @@ using namespace std;
 class State
 {
 public:
+    static char key; // current key input
     static vector<vector<int>> graphic;
 
     static float carDistance;    // Distance car has travelled around track

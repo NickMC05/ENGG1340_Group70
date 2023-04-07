@@ -1,4 +1,5 @@
 #include "Car.h"
+#include "State.h"
 
 Car::Car()
 {
@@ -9,12 +10,19 @@ Car::Car()
 
 void Car::draw(int x, int y)
 {
-    if(dir == 0)
-        straight->draw(x,y);
-    if(dir == 1)
-        right->draw(x,y);
-    if(dir == 2)
-        left->draw(x,y);
+
+    if (State::key == 'w')
+    {
+        straight->draw(x, y);
+    }
+    else if (State::key == 'd')
+    {
+        right->draw(x, y);
+    }
+    else if (State::key == 'a')
+    {
+        left->draw(x, y);
+    }
 }
 
 void Car::turnRight()

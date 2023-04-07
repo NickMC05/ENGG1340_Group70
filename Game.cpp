@@ -3,10 +3,6 @@
 #include <ncurses.h>
 #include "State.h"
 
-Game::Game()
-{
-}
-
 void Game::run()
 {
     // Initialize ncurses
@@ -46,6 +42,8 @@ void Game::init()
 
     car = new Car();
     background = new Background();
+    // Map(int width, int height)
+    map = new Map(100, 50);
 }
 
 void Game::menu()
@@ -61,27 +59,15 @@ void Game::update()
     {
         gameRunning = false;
     }
-
-    //control car
-    if(ch == 'a')
-    {
-        car->turnLeft();
-    }
-    else if(ch == 'd')
-    {
-        car->turnRight();
-    }
-    else if(ch == 'w')
-    {
-        car->turnStraight();
-    }
+    float &localCarDistance = State::carDistance;
+    localCarDistance += 0.1f;
 }
 
 void Game::draw()
 {
     vector<vector<int>> &graphic = State::graphic;
-    //draw all white
-    for (int i = 0; i < 60; i++)
+    // draw all white
+    for (int i = 0; i < 50; i++)
     {
         for (int j = 0; j < 100; j++)
         {
@@ -89,12 +75,15 @@ void Game::draw()
         }
     }
 
-        // draw functions
-    car->draw(40, 40);
     background->draw();
 
+    // draw functions
+    map->draw();
+    // car->draw(int x, int y)
+    car->draw(45, 40);
+
     // this will update all the pixels on the screen
-    for (int i = 0; i < 60; i++)
+    for (int i = 0; i < 50; i++)
     {
         for (int j = 0; j < 100; j++)
         {

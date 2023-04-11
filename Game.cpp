@@ -71,25 +71,14 @@ void Game::update()
 void Game::draw()
 {
     vector<vector<int>> &graphic = State::graphic;
-<<<<<<< HEAD
     //draw all white
     for (int i = 0; i < State::HEIGHT; i++)
-=======
-    // draw all white
-    for (int i = 0; i < 50; i++)
->>>>>>> c376b2e7068e0746ab0b8d54956d82088b51d429
     {
         for (int j = 0; j < State::WIDTH; j++)
         {
             graphic[i][j] = 5;
         }
     }
-
-<<<<<<< HEAD
-    // draw functions
-    //car->draw(40, 20);
-=======
->>>>>>> c376b2e7068e0746ab0b8d54956d82088b51d429
     background->draw();
 
     // draw functions
@@ -98,11 +87,7 @@ void Game::draw()
     car->draw(45, 40);
 
     // this will update all the pixels on the screen
-<<<<<<< HEAD
     for (int i = 0; i < State::HEIGHT; i++)
-=======
-    for (int i = 0; i < 50; i++)
->>>>>>> c376b2e7068e0746ab0b8d54956d82088b51d429
     {
         for (int j = 0; j < State::WIDTH; j++)
         {

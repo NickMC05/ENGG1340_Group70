@@ -1,11 +1,8 @@
 #include "State.h"
 
-<<<<<<< HEAD
-vector<vector<int> > State::graphic = vector<vector<int>>(60, vector<int>(100, 5));
 int State::WIDTH = 100;
 int State::HEIGHT = 50;
-=======
-vector<vector<int>> State::graphic = vector<vector<int>>(50, vector<int>(100, 5));
+vector<vector<int> > State::graphic = vector<vector<int>>(50, vector<int>(100, 5));
 char State::key = 'w';
 
 float State::carDistance = 0.0f;
@@ -20,4 +17,3 @@ float State::carSpeed = 0.0f;        // Current player speed
 
 // list<float> State::listLapTimes; // List of previous lap times
 float State::fCurrentLapTime = 0.0f; // Current lap time
->>>>>>> c376b2e7068e0746ab0b8d54956d82088b51d429

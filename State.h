@@ -5,12 +5,18 @@
 #include <vector>
 #include <utility>
 #include <list>
+
 using namespace std;
 
 class State
 {
 public:
+<<<<<<< HEAD
     static vector<vector<int> > graphic;
+=======
+    static char key; // current key input
+    static vector<vector<int>> graphic;
+>>>>>>> c376b2e7068e0746ab0b8d54956d82088b51d429
 
     static float carDistance;    // Distance car has travelled around track
     static float carCurvature;   // Current track curvature, lerped between track sections

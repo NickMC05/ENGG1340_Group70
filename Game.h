@@ -4,12 +4,12 @@
 #include <ncurses.h>
 #include "Car.h"
 #include "Background.h"
+#include "Map.h"
 
 class Game
 {
 
 public:
-    Game();
     void run();
 
 private:
@@ -23,6 +23,8 @@ private:
 
     Car *car;
     Background *background;
+    Map *map;
+    char input;
 };
 
 #endif

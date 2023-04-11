@@ -1,11 +1,7 @@
 #include "Game.h"
 #include "Menu.h"
-#include <ncurses.h>
 #include "State.h"
-
-Game::Game()
-{
-}
+#include <ncurses.h>
 
 void Game::run()
 {
@@ -42,10 +38,13 @@ void Game::init()
     init_pair(4, COLOR_GREEN, COLOR_GREEN);
     init_pair(5, COLOR_WHITE, COLOR_WHITE);
     init_pair(6, COLOR_YELLOW, COLOR_YELLOW);
+    init_pair(7, COLOR_CYAN, COLOR_CYAN);
     init_pair(9, COLOR_BLACK, COLOR_BLACK);
 
     car = new Car();
     background = new Background();
+    // Map(int width, int height)
+    map = new Map(100, 50);
 }
 
 void Game::menu()
@@ -56,32 +55,29 @@ void Game::menu()
 // Logics will update here
 void Game::update()
 {
-    int ch = getch();
-    if (ch == 'q')
+    input = getch();
+    if (input == 'q')
     {
         gameRunning = false;
     }
-
-    //control car
-    if(ch == 'a')
+    else if (input != ERR)
     {
-        car->turnLeft();
+        State::key = input;
     }
-    else if(ch == 'd')
-    {
-        car->turnRight();
-    }
-    else if(ch == 'w')
-    {
-        car->turnStraight();
-    }
+    float &localCarDistance = State::carDistance;
+    localCarDistance += 0.1f;
 }
 
 void Game::draw()
 {
     vector<vector<int>> &graphic = State::graphic;
+<<<<<<< HEAD
     //draw all white
     for (int i = 0; i < State::HEIGHT; i++)
+=======
+    // draw all white
+    for (int i = 0; i < 50; i++)
+>>>>>>> c376b2e7068e0746ab0b8d54956d82088b51d429
     {
         for (int j = 0; j < State::WIDTH; j++)
         {
@@ -89,12 +85,24 @@ void Game::draw()
         }
     }
 
+<<<<<<< HEAD
     // draw functions
     //car->draw(40, 20);
+=======
+>>>>>>> c376b2e7068e0746ab0b8d54956d82088b51d429
     background->draw();
 
+    // draw functions
+    map->draw();
+    // car->draw(int x, int y)
+    car->draw(45, 40);
+
     // this will update all the pixels on the screen
+<<<<<<< HEAD
     for (int i = 0; i < State::HEIGHT; i++)
+=======
+    for (int i = 0; i < 50; i++)
+>>>>>>> c376b2e7068e0746ab0b8d54956d82088b51d429
     {
         for (int j = 0; j < State::WIDTH; j++)
         {

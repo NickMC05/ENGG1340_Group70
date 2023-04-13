@@ -55,12 +55,12 @@ void Game::menu()
 // Logics will update here
 void Game::update()
 {
-    input = getch();
+    input = tolower(getch());
     if (input == 'q')
     {
         gameRunning = false;
     }
-    else if (input != ERR)
+    else if (input == 'w' || input == 'a' || input == 'd')
     {
         State::key = input;
     }
@@ -71,7 +71,7 @@ void Game::update()
 void Game::draw()
 {
     vector<vector<int>> &graphic = State::graphic;
-    //draw all white
+    // draw all white
     for (int i = 0; i < State::HEIGHT; i++)
     {
         for (int j = 0; j < State::WIDTH; j++)

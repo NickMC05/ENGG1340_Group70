@@ -52,7 +52,7 @@ void Map::draw()
             }
             if (x >= nLeftClip && x < nRightClip)
             {
-                graphic[nRow][x] = 9;
+                graphic[nRow][x] = 2;
             }
             if (x >= nRightClip && x < nRightGrass)
             {

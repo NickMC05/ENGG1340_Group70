@@ -8,9 +8,10 @@ Car::Car()
     right = new Sprite("car_right.txt");
 }
 
-void Car::draw(int x, int y)
+void Car::draw()
 {
-
+    int x = State::carPosition;
+    int y = 38;
     if (State::key == 'w')
     {
         straight->draw(x, y);

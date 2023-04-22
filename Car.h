@@ -8,10 +8,11 @@ class Car
 {
 public:
     Car();
-    void draw(int x, int y);
+    void draw();
     void turnLeft();
     void turnRight();
     void turnStraight();
+
 private:
     Sprite *straight;
     Sprite *left;

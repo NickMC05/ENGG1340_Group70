@@ -84,7 +84,7 @@ void Game::draw()
     // draw functions
     map->draw();
     // car->draw(int x, int y)
-    car->draw(State::carPosition, 40);
+    car->draw();
 
     // this will update all the pixels on the screen
     for (int i = 0; i < State::HEIGHT; i++)

@@ -17,10 +17,18 @@ void Car::draw(int x, int y)
     }
     else if (State::key == 'd')
     {
+        if (State::carPosition < 91)
+        {
+            State::carPosition += 0.05;
+        }
         right->draw(x, y);
     }
     else if (State::key == 'a')
     {
+        if (State::carPosition > 0)
+        {
+            State::carPosition -= 0.05;
+        }
         left->draw(x, y);
     }
 }

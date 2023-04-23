@@ -18,33 +18,30 @@ void Map::draw()
 
             float fPerspective = (float)y / (mapHeight / 2.0f);
 
-            float &fCurvature = State::trackCurvature;  // Current Curvature of Car (Used for smooth turns)
+            float &fCurvature = State::trackCurvature; // Current Curvature of Car (Used for smooth turns)
 
             static chrono::steady_clock::time_point currentTime;
-            auto newTime = std::chrono::steady_clock::now();          // Current Time
-            float fElapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(newTime - currentTime).count() / 1000000000.0f;//100000000.0f;    // Time between Loops
-            currentTime = std::chrono::steady_clock::now();                 // Updates Time
-            
+            auto newTime = std::chrono::steady_clock::now();                                                                     // Current Time
+            float fElapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(newTime - currentTime).count() / 1000000000.0f; // 100000000.0f;    // Time between Loops
+            currentTime = std::chrono::steady_clock::now();                                                                      // Updates Time
 
-            vector<pair<float,float>> vecTrack; // Targetcurvature, distance
+            vector<pair<float, float>> vecTrack; // Targetcurvature, distance
             vecTrack.push_back(make_pair(0.0f, 100.0f));
             vecTrack.push_back(make_pair(-0.5f, 100.0f));
             vecTrack.push_back(make_pair(0.0f, 200.0f));
             vecTrack.push_back(make_pair(0.5f, 200.0f));
-            
-          
-            
+
             float fOffset = 0;
             int nTrackSection = 0; // index of vecTrack
-            
 
-            while (nTrackSection <= vecTrack.size() && fOffset <= fDistance){
+            while (nTrackSection <= vecTrack.size() && fOffset <= fDistance)
+            {
                 fOffset += vecTrack[nTrackSection].second;
                 nTrackSection++;
             };
-            
+
             float ftargetCurvature = vecTrack[nTrackSection - 1].first;
-            float fTrackCurvatureDiff = (ftargetCurvature - fCurvature) * fElapsedTime; 
+            float fTrackCurvatureDiff = (ftargetCurvature - fCurvature) * fElapsedTime;
             fCurvature += fTrackCurvatureDiff; // For smoothness, must add 0.000001
             float fMiddlePoint = 0.5f + fCurvature * powf((1.0f - fPerspective), 3);
             float fRoadWidth = 0.1f + fPerspective * 0.88f;

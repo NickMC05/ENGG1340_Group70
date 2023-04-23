@@ -13,12 +13,12 @@ void Game::run()
     nodelay(stdscr, true);
 
     // Create menu
-    Menu menu;
-    if (menu.run())
-    {
-        end();
-        return;
-    };
+    // Menu menu;
+    // if (menu.run())
+    // {
+    //     end();
+    //     return;
+    // };
     // Start the game
     init();
     while (gameRunning)
@@ -45,6 +45,7 @@ void Game::init()
     background = new Background();
     // Map(int width, int height)
     map = new Map(100, 50);
+    
 }
 
 void Game::menu()
@@ -64,7 +65,13 @@ void Game::update()
     {
         State::key = input;
     }
+
     float &localCarDistance = State::carDistance;
+    float &localCurrentTime = State::fCurrentLapTime;
+
+    chrono::steady_clock::time_point newTime = std::chrono::steady_clock::now();
+    localCurrentTime = chrono::duration_cast<std::chrono::seconds>(newTime - startTime).count(); // seconds
+
     localCarDistance += 0.1f;
 }
 

@@ -16,4 +16,4 @@ float State::carSpeed = 0.0f;        // Current player speed
 // vector<pair<float, float>> State::vecTrack; // Track sections, sharpness of bend, length of section
 
 // list<float> State::listLapTimes; // List of previous lap times
-float State::fCurrentLapTime = 0.0f; // Current lap time
+float State::fCurrentLapTime; // Current lap time

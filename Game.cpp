@@ -12,14 +12,14 @@ void Game::run()
     noecho();
     nodelay(stdscr, true);
 
-    Create menu
+    // Create menu
     Menu menu;
     if (menu.run())
     {
         end();
         return;
     };
-    Start the game
+    // Start the game
     init();
     while (gameRunning)
     {

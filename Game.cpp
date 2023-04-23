@@ -13,12 +13,12 @@ void Game::run()
     nodelay(stdscr, true);
 
     // Create menu
-    // Menu menu;
-    // if (menu.run())
-    // {
-    //     end();
-    //     return;
-    // };
+    Menu menu;
+    if (menu.run())
+    {
+        end();
+        return;
+    };
     // Start the game
     init();
     while (gameRunning)

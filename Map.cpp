@@ -25,22 +25,16 @@ void Map::draw()
             float fElapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(newTime - currentTime).count() / 1000000000.0f; // 100000000.0f;    // Time between Loops
             currentTime = std::chrono::steady_clock::now();                                                                      // Updates Time
 
-            vector<pair<float, float>> vecTrack; // Targetcurvature, distance
-            vecTrack.push_back(make_pair(0.0f, 100.0f));
-            vecTrack.push_back(make_pair(-0.5f, 100.0f));
-            vecTrack.push_back(make_pair(0.0f, 200.0f));
-            vecTrack.push_back(make_pair(0.5f, 200.0f));
-
             float fOffset = 0;
             int nTrackSection = 0; // index of vecTrack
 
-            while (nTrackSection <= vecTrack.size() && fOffset <= fDistance)
+            while (nTrackSection <= State::vecTrack.size() && fOffset <= fDistance)
             {
-                fOffset += vecTrack[nTrackSection].second;
+                fOffset += State::vecTrack[nTrackSection].second;
                 nTrackSection++;
             };
 
-            float ftargetCurvature = vecTrack[nTrackSection - 1].first;
+            float ftargetCurvature = State::vecTrack[nTrackSection - 1].first;
             float fTrackCurvatureDiff = (ftargetCurvature - fCurvature) * fElapsedTime;
             fCurvature += fTrackCurvatureDiff; // For smoothness, must add 0.000001
             float fMiddlePoint = 0.5f + fCurvature * powf((1.0f - fPerspective), 3);

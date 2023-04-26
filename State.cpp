@@ -13,7 +13,7 @@ float State::carPosition = 45;       // Current car position
 float State::playerCurvature = 0.0f; // Accumulation of player curvature
 float State::carSpeed = 0.0f;        // Current player speed
 
-// vector<pair<float, float>> State::vecTrack; // Track sections, sharpness of bend, length of section
+vector<pair<float, float>> State::vecTrack; // Track sections, sharpness of bend, length of section
 
-// list<float> State::listLapTimes; // List of previous lap times
-float State::fCurrentLapTime; // Current lap time
+list<float> State::listLapTimes = {0, 0, 0, 0, 0}; // List of previous lap times
+float State::fCurrentLapTime = 0.0f;               // Current lap time

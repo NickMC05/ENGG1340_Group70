@@ -19,6 +19,7 @@ private:
     void update();
     void draw();
     void end();
+    void createTrack();
 
     bool gameRunning = true;
 

@@ -40,12 +40,29 @@ void Game::init()
     init_pair(6, COLOR_YELLOW, COLOR_YELLOW);
     init_pair(7, COLOR_CYAN, COLOR_CYAN);
     init_pair(9, COLOR_BLACK, COLOR_BLACK);
-
+    createTrack();
     car = new Car();
     background = new Background();
     // Map(int width, int height)
     map = new Map(100, 50);
-    
+}
+
+void Game::createTrack()
+{
+    // should be random
+    State::vecTrack.push_back(make_pair(0.0f, 10.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(1.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 400.0f));
+    State::vecTrack.push_back(make_pair(-1.0f, 100.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(-1.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(1.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(0.2f, 500.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    for (auto t : State::vecTrack)
+        State::trackDistance += t.second;
 }
 
 void Game::menu()

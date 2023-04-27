@@ -141,13 +141,13 @@ void Menu::loading_screen()
         for (int j = 0; j < i; j++)
         {
             attron(COLOR_PAIR(3));
-            mvprintw(28, j + 50, "#");
+            mvprintw(28, j + 60, "#");
             attroff(COLOR_PAIR(3));
         }
         for (int j = i; j < 80; j++)
         {
             attron(COLOR_PAIR(2));
-            mvprintw(28, j + 50, "_");
+            mvprintw(28, j + 60, "_");
             attroff(COLOR_PAIR(2));
         }
         usleep(30 * (80 - i) * (80 - i));

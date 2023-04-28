@@ -3,6 +3,7 @@
 #include "State.h"
 #include <ncurses.h>
 
+
 void Game::run()
 {
     // Initialize ncurses
@@ -12,14 +13,14 @@ void Game::run()
     noecho();
     nodelay(stdscr, true);
 
-    // Create menu
-    Menu menu;
-    if (menu.run())
-    {
-        end();
-        return;
-    };
-    // Start the game
+    // // Create menu
+    // Menu menu;
+    // if (menu.run())
+    // {
+    //     end();
+    //     return;
+    // };
+    // // Start the game
     init();
     while (gameRunning)
     {
@@ -51,16 +52,16 @@ void Game::createTrack()
 {
     // should be random
     State::vecTrack.push_back(make_pair(0.0f, 10.0f));
-    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
-    State::vecTrack.push_back(make_pair(1.0f, 200.0f));
-    State::vecTrack.push_back(make_pair(0.0f, 400.0f));
-    State::vecTrack.push_back(make_pair(-1.0f, 100.0f));
-    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
-    State::vecTrack.push_back(make_pair(-1.0f, 200.0f));
-    State::vecTrack.push_back(make_pair(1.0f, 200.0f));
-    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
-    State::vecTrack.push_back(make_pair(0.2f, 500.0f));
-    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    // State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    // State::vecTrack.push_back(make_pair(-1.0f, 200.0f));
+    // State::vecTrack.push_back(make_pair(0.0f, 400.0f));
+    // State::vecTrack.push_back(make_pair(-1.0f, 100.0f));
+    // State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    // State::vecTrack.push_back(make_pair(-1.0f, 200.0f));
+    // State::vecTrack.push_back(make_pair(1.0f, 200.0f));
+    // State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    // State::vecTrack.push_back(make_pair(0.2f, 500.0f));
+    // State::vecTrack.push_back(make_pair(0.0f, 200.0f));
     for (auto t : State::vecTrack)
         State::trackDistance += t.second;
 }
@@ -89,7 +90,15 @@ void Game::update()
     chrono::steady_clock::time_point newTime = std::chrono::steady_clock::now();
     localCurrentTime = chrono::duration_cast<std::chrono::seconds>(newTime - startTime).count(); // seconds
 
-    localCarDistance += 0.1f;
+ 
+
+    if(fabs(State::playerCurvature - State::trackCurvature) < 0.78){
+        localCarDistance += 0.05f;
+    }
+    else{
+        localCarDistance += 0.001f;
+    }
+
 }
 
 void Game::draw()

@@ -1,5 +1,6 @@
 #include "Map.h"
 #include "State.h"
+
 Map::Map(int width, int height)
 {
     mapWidth = width;
@@ -18,7 +19,9 @@ void Map::draw()
 
             float fPerspective = (float)y / (mapHeight / 2.0f);
 
-            float &fCurvature = State::trackCurvature; // Current Curvature of Car (Used for smooth turns)
+            float &fCurvature = State::carCurvature; // Current Curvature of Car (Used for smooth turns)
+            float &fTrackCurvature = State::trackCurvature;
+            float &fCarPos = State::carPosition;
 
             static chrono::steady_clock::time_point currentTime;
             auto newTime = std::chrono::steady_clock::now();                                                                     // Current Time
@@ -37,6 +40,12 @@ void Map::draw()
             float ftargetCurvature = State::vecTrack[nTrackSection - 1].first;
             float fTrackCurvatureDiff = (ftargetCurvature - fCurvature) * fElapsedTime;
             fCurvature += fTrackCurvatureDiff; // For smoothness, must add 0.000001
+
+            fTrackCurvature += fCurvature * fElapsedTime / 2.2;
+            float nCarPos = State::playerCurvature - fTrackCurvature;
+            fCarPos = 45 +((int)(100*nCarPos)/2);
+            
+            
             float fMiddlePoint = 0.5f + fCurvature * powf((1.0f - fPerspective), 3);
             float fRoadWidth = 0.1f + fPerspective * 0.88f;
             float fClipWidth = fRoadWidth * 0.15f;

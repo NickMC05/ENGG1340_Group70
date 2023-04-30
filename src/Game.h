@@ -6,6 +6,7 @@
 #include "Car.h"
 #include "Background.h"
 #include "Map.h"
+#include <time.h>
 
 class Game
 {
@@ -22,9 +23,8 @@ private:
     void createTrack();
 
     bool gameRunning = true;
-
-    chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now(); // Starts timer
-    std::chrono::_V2::steady_clock::time_point lastKeyTime;                        // count accumulate ERR from getch()
+    std::chrono::_V2::system_clock::time_point lastFrameTime;
+    std::chrono::_V2::steady_clock::time_point lastKeyTime; // count accumulate ERR from getch()
 
     Car *car;
     Background *background;

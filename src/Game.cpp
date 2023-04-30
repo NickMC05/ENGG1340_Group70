@@ -19,21 +19,17 @@ void Game::run()
     //     end();
     //     return;
     // };
-    // // Start the game
+
+    // Start the game
     init();
     while (gameRunning)
     {
-        // auto startTime = std::chrono::steady_clock::now(); // Record the start time of the frame
+        auto now = std::chrono::system_clock::now();
+        std::chrono::duration<float> elapsedTime = now - lastFrameTime;
+        State::elapsedTime = elapsedTime.count();
+        lastFrameTime = std::chrono::system_clock::now();
         update();
         draw();
-        // auto endTime = std::chrono::steady_clock::now(); // Record the end time of the frame
-
-        // auto frameTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime); // Calculate the frame time in milliseconds
-        // int sleepTime = (1000 / 60) - frameTime.count();                                             // Calculate the amount of time to sleep to maintain 60 fps
-        // if (sleepTime > 0)
-        // {
-        //     napms(sleepTime); // Sleep for the specified amount of time
-        // }
     }
     end();
 }
@@ -54,22 +50,23 @@ void Game::init()
     background = new Background();
     // Map(int width, int height)
     map = new Map(State::WIDTH, State::HEIGHT);
+    lastFrameTime = std::chrono::system_clock::now();
 }
 
 void Game::createTrack()
 {
     // should be random
     State::vecTrack.push_back(make_pair(0.0f, 10.0f));
-    // State::vecTrack.push_back(make_pair(0.0f, 200.0f));
-    // State::vecTrack.push_back(make_pair(-1.0f, 200.0f));
-    // State::vecTrack.push_back(make_pair(0.0f, 400.0f));
-    // State::vecTrack.push_back(make_pair(-1.0f, 100.0f));
-    // State::vecTrack.push_back(make_pair(0.0f, 200.0f));
-    // State::vecTrack.push_back(make_pair(-1.0f, 200.0f));
-    // State::vecTrack.push_back(make_pair(1.0f, 200.0f));
-    // State::vecTrack.push_back(make_pair(0.0f, 200.0f));
-    // State::vecTrack.push_back(make_pair(0.2f, 500.0f));
-    // State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(-1.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 400.0f));
+    State::vecTrack.push_back(make_pair(-1.0f, 100.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(-1.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(1.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
+    State::vecTrack.push_back(make_pair(0.2f, 500.0f));
+    State::vecTrack.push_back(make_pair(0.0f, 200.0f));
     for (auto t : State::vecTrack)
         State::trackDistance += t.second;
 }
@@ -89,7 +86,7 @@ void Game::update()
         return;
     }
 
-    if (input == 'a' || input == 'd')
+    if (input == 'w' || input == 'a' || input == 's' || input == 'd')
     {
         lastKeyTime = std::chrono::steady_clock::now();
         State::key = input;
@@ -104,22 +101,8 @@ void Game::update()
         }
     }
 
-    float &localCarDistance = State::carDistance;
-    float &localCurrentTime = State::fCurrentLapTime;
-
-    chrono::steady_clock::time_point newTime = std::chrono::steady_clock::now();
-    localCurrentTime = chrono::duration_cast<std::chrono::seconds>(newTime - startTime).count(); // seconds
-
-    if (fabs(State::playerCurvature - State::trackCurvature) < 0.78)
-    {
-        localCarDistance += 0.05f;
-    }
-    else
-    {
-        localCarDistance += 0.001f;
-    }
-
     car->update();
+    State::update();
 }
 
 void Game::draw()

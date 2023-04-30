@@ -15,38 +15,10 @@ void Map::draw()
     {
         for (int x = 0; x < mapWidth; x++)
         {
-            float &fDistance = State::carDistance; // Player's current distance here
 
             float fPerspective = (float)y / (mapHeight / 2.0f);
 
-            float &fCurvature = State::carCurvature; // Current Curvature of Car (Used for smooth turns)
-            float &fTrackCurvature = State::trackCurvature;
-            float &fCarPos = State::carPosition;
-
-            static chrono::steady_clock::time_point currentTime;
-            auto newTime = std::chrono::steady_clock::now();                                                                     // Current Time
-            float fElapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(newTime - currentTime).count() / 1000000000.0f; // 100000000.0f;    // Time between Loops
-            currentTime = std::chrono::steady_clock::now();                                                                      // Updates Time
-
-            float fOffset = 0;
-            int nTrackSection = 0; // index of vecTrack
-
-            while (nTrackSection <= State::vecTrack.size() && fOffset <= fDistance)
-            {
-                fOffset += State::vecTrack[nTrackSection].second;
-                nTrackSection++;
-            };
-
-            float ftargetCurvature = State::vecTrack[nTrackSection - 1].first;
-            float fTrackCurvatureDiff = (ftargetCurvature - fCurvature) * fElapsedTime;
-            fCurvature += fTrackCurvatureDiff; // For smoothness, must add 0.000001
-
-            fTrackCurvature += fCurvature * fElapsedTime / 2.2;
-            float nCarPos = State::playerCurvature - fTrackCurvature;
-            fCarPos = 45 +((int)(100*nCarPos)/2);
-            
-            
-            float fMiddlePoint = 0.5f + fCurvature * powf((1.0f - fPerspective), 3);
+            float fMiddlePoint = 0.5f + State::currentCurvature * powf((1.0f - fPerspective), 3);
             float fRoadWidth = 0.1f + fPerspective * 0.88f;
             float fClipWidth = fRoadWidth * 0.15f;
 
@@ -60,7 +32,7 @@ void Map::draw()
             int nRow = (mapHeight / 2) + y;
 
             int nClipColour = 0;
-            if (sinf(20.0f * powf(1.0f - fPerspective, 3) + fDistance * 0.1f) > 0.0f)
+            if (sinf(20.0f * powf(1.0f - fPerspective, 3) + State::distance * 0.1f) > 0.0f)
             {
                 nClipColour = 1;
             }

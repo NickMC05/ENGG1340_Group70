@@ -10,12 +10,10 @@ public:
     Car();
     void update();
     void draw();
-    void turnLeft();
-    void turnRight();
-    void turnStraight();
 
 private:
-    int x,y;
+    int x, y = 30;
+    float curvature = 0;
     Sprite *straight;
     Sprite *left;
     Sprite *right;

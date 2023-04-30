@@ -4,7 +4,6 @@ int State::WIDTH = 80;
 int State::HEIGHT = 40;
 vector<vector<int>> State::graphic = vector<vector<int>>(50, vector<int>(100, 5));
 char State::key = 'w';
-int State::errTimes = 0;
 
 float State::carDistance = 0.0f;
 float State::carCurvature = 0.0f;    // Current track curvature, lerped between track sections

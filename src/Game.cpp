@@ -23,8 +23,17 @@ void Game::run()
     init();
     while (gameRunning)
     {
+        // auto startTime = std::chrono::steady_clock::now(); // Record the start time of the frame
         update();
         draw();
+        // auto endTime = std::chrono::steady_clock::now(); // Record the end time of the frame
+
+        // auto frameTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime); // Calculate the frame time in milliseconds
+        // int sleepTime = (1000 / 60) - frameTime.count();                                             // Calculate the amount of time to sleep to maintain 60 fps
+        // if (sleepTime > 0)
+        // {
+        //     napms(sleepTime); // Sleep for the specified amount of time
+        // }
     }
     end();
 }
@@ -82,13 +91,14 @@ void Game::update()
 
     if (input == 'a' || input == 'd')
     {
-        State::errTimes = 0;
+        lastKeyTime = std::chrono::steady_clock::now();
         State::key = input;
     }
     else if (input == ERR)
     {
-        State::errTimes += 1;
-        if (State::errTimes > 400)
+        auto now = std::chrono::steady_clock::now();
+        int duration = std::chrono::duration_cast<std::chrono::milliseconds>(now - lastKeyTime).count();
+        if (duration > 500)
         {
             State::key = ERR;
         }

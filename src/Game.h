@@ -12,6 +12,7 @@ class Game
 
 public:
     void run();
+
 private:
     void init();
     void menu();
@@ -23,6 +24,7 @@ private:
     bool gameRunning = true;
 
     chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now(); // Starts timer
+    std::chrono::_V2::steady_clock::time_point lastKeyTime;                        // count accumulate ERR from getch()
 
     Car *car;
     Background *background;

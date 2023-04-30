@@ -1,7 +1,7 @@
 #include "State.h"
 
-int State::WIDTH = 100;
-int State::HEIGHT = 50;
+int State::WIDTH = 80;
+int State::HEIGHT = 40;
 vector<vector<int>> State::graphic = vector<vector<int>>(50, vector<int>(100, 5));
 char State::key = 'w';
 int State::errTimes = 0;

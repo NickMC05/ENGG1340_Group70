@@ -12,7 +12,6 @@ class Game
 
 public:
     void run();
-
 private:
     void init();
     void menu();

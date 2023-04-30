@@ -11,13 +11,13 @@ Car::Car()
 void Car::draw()
 {
     int x = State::carPosition;
-    int y = 38;
+    int y = 30;
 
     static chrono::steady_clock::time_point currentTime;
     auto newTime = std::chrono::steady_clock::now();                                                                     // Current Time
     float fElapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(newTime - currentTime).count() / 1000000000.0f; // 100000000.0f;    // Time between Loops
     currentTime = std::chrono::steady_clock::now();
-
+    
     if (State::key == 'd')
     {
         if (State::carPosition < 91)

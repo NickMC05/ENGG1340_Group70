@@ -44,7 +44,7 @@ void Game::init()
     car = new Car();
     background = new Background();
     // Map(int width, int height)
-    map = new Map(100, 50);
+    map = new Map(State::WIDTH, State::HEIGHT);
 }
 
 void Game::createTrack()

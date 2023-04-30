@@ -15,7 +15,7 @@ class State
 public:
     static char key;     // current key input
     static int errTimes; // count accumulate ERR from getch()
-    static vector<vector<int>> graphic;
+    static vector<vector<int> > graphic;
 
     static float carDistance;    // Distance car has travelled around track
     static float carCurvature;   // Current track curvature, lerped between track sections
@@ -26,7 +26,7 @@ public:
     static float playerCurvature; // Accumulation of player curvature
     static float carSpeed;        // Current player speed
 
-    static vector<pair<float, float>> vecTrack; // Track sections, sharpness of bend, length of section
+    static vector<pair<float, float> > vecTrack; // Track sections, sharpness of bend, length of section
 
     static list<float> listLapTimes; // List of previous lap times
     static float fCurrentLapTime;    // Current lap time

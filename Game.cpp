@@ -3,7 +3,6 @@
 #include "State.h"
 #include <ncurses.h>
 
-
 void Game::run()
 {
     // Initialize ncurses
@@ -78,10 +77,21 @@ void Game::update()
     if (input == 'q')
     {
         gameRunning = false;
+        return;
     }
-    else if (input == 'w' || input == 'a' || input == 'd')
+
+    if (input == 'a' || input == 'd')
     {
+        State::errTimes = 0;
         State::key = input;
+    }
+    else if (input == ERR)
+    {
+        State::errTimes += 1;
+        if (State::errTimes > 400)
+        {
+            State::key = ERR;
+        }
     }
 
     float &localCarDistance = State::carDistance;
@@ -90,15 +100,14 @@ void Game::update()
     chrono::steady_clock::time_point newTime = std::chrono::steady_clock::now();
     localCurrentTime = chrono::duration_cast<std::chrono::seconds>(newTime - startTime).count(); // seconds
 
- 
-
-    if(fabs(State::playerCurvature - State::trackCurvature) < 0.78){
+    if (fabs(State::playerCurvature - State::trackCurvature) < 0.78)
+    {
         localCarDistance += 0.05f;
     }
-    else{
+    else
+    {
         localCarDistance += 0.001f;
     }
-
 }
 
 void Game::draw()

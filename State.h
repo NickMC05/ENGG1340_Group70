@@ -13,7 +13,8 @@ using namespace std;
 class State
 {
 public:
-    static char key; // current key input
+    static char key;     // current key input
+    static int errTimes; // count accumulate ERR from getch()
     static vector<vector<int>> graphic;
 
     static float carDistance;    // Distance car has travelled around track

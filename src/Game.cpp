@@ -108,6 +108,8 @@ void Game::update()
     {
         localCarDistance += 0.001f;
     }
+
+    car->update();
 }
 
 void Game::draw()

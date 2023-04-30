@@ -6,18 +6,18 @@ Car::Car()
     straight = new Sprite("car.txt");
     left = new Sprite("car_left.txt");
     right = new Sprite("car_right.txt");
+    y = 30;
 }
 
-void Car::draw()
+void Car::update()
 {
-    int x = State::carPosition;
-    int y = 30;
+    x = State::carPosition;
 
     static chrono::steady_clock::time_point currentTime;
     auto newTime = std::chrono::steady_clock::now();                                                                     // Current Time
     float fElapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(newTime - currentTime).count() / 1000000000.0f; // 100000000.0f;    // Time between Loops
     currentTime = std::chrono::steady_clock::now();
-    
+
     if (State::key == 'd')
     {
         if (State::carPosition < 91)
@@ -28,7 +28,8 @@ void Car::draw()
                 State::playerCurvature += 0.7 * fElapsedTime;
             }
         }
-        right->draw(x, y);
+        //means right
+        dir = 1;
     }
     else if (State::key == 'a')
     {
@@ -40,11 +41,29 @@ void Car::draw()
                 State::playerCurvature -= 0.7 * fElapsedTime;
             }
         }
-        left->draw(x, y);
+        //means left
+        dir = 2;
     }
     else
     {
-        straight->draw(x, y);
+        //means straight
+        dir = 0;
+    }
+}
+
+void Car::draw()
+{
+    if(dir == 1)
+    {
+        right->draw(x,y);
+    }
+    else if(dir == 2)
+    {
+        left->draw(x,y);
+    }
+    else
+    {
+        straight->draw(x,y);
     }
 }
 

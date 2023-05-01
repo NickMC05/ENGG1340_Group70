@@ -24,7 +24,9 @@ int Menu::run()
         if (w.ws_row >= 50 && w.ws_col >= 200)
         { // Scrren size is enough
             break;
-        } else { // Not yet
+        }
+        else
+        { // Not yet
             printw("Before playing the game, please make sure that the terminal size is enough for the game to be printed.\n");
             printw("The minimum requirement of the terminal size is 200x60.\n\n");
             printw("Current terminal size: %dx%d", w.ws_col, w.ws_row);
@@ -92,7 +94,8 @@ int Menu::run()
         else if (current_page == 4)
         {
             credits_screen();
-            while ((input = getch()) != KEY_F(1)) {
+            while ((input = getch()) != KEY_F(1))
+            {
                 break;
             }
             current_page = 1;
@@ -109,9 +112,6 @@ int Menu::run()
 void Menu::loading_screen()
 {
     // Set color pairs (still not sure how to use init_pair from other scripts)
-    init_pair(1, COLOR_RED, COLOR_WHITE);
-    init_pair(2, COLOR_BLACK, COLOR_BLACK);
-    init_pair(3, COLOR_RED, COLOR_RED);
 
     // Code
     erase();
@@ -155,8 +155,6 @@ void Menu::loading_screen()
 void Menu::home_screen(int input, int select, int max_choice)
 {
     // Set color pairs (still not sure how to use init_pair from other scripts)
-    init_pair(1, COLOR_WHITE, COLOR_RED);
-    init_pair(2, COLOR_BLACK, COLOR_RED);
 
     erase();
     attron(COLOR_PAIR(1));
@@ -259,7 +257,6 @@ void Menu::home_screen(int input, int select, int max_choice)
 void Menu::credits_screen()
 {
     // Set color pairs (still not sure how to use init_pair from other scripts)
-    init_pair(1, COLOR_RED, COLOR_WHITE);
 
     erase();
     attron(COLOR_PAIR(1));
@@ -322,7 +319,7 @@ void Menu::credits_screen()
     mvprintw(47, 35, "             __/ |                                                       ");
     mvprintw(48, 35, "            |___/                                                        ");
 
-    mvprintw(59,180,"Press any key to return.");
+    mvprintw(59, 180, "Press any key to return.");
 
     attroff(COLOR_PAIR(1));
     move(0, 0);

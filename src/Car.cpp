@@ -1,32 +1,38 @@
+#include <math.h>
 #include "Car.h"
 #include "State.h"
+#include "Sprite.h"
+#include "Road.h"
 
-Car::Car()
+void Car::init()
 {
     straight = new Sprite("car.txt");
     left = new Sprite("car_left.txt");
     right = new Sprite("car_right.txt");
+    straight->state = state;
+    left->state = state;
+    right->state = state;
 }
 
 void Car::update()
 {
-    if (State::key == 'w')
+    if (state->key == 'w')
     {
-        State::carSpeed += 2 * State::elapsedTime;
+        speed += 2 * state->elapsedTime;
     }
-    else if (State::key == 's')
+    else if (state->key == 's')
     {
-        State::carSpeed -= State::elapsedTime;
+        speed -= state->elapsedTime;
     }
-    else if (State::key == 'd')
+    else if (state->key == 'd')
     {
-        curvature += 0.7 * State::elapsedTime * (1 - State::carSpeed / 2);
+        curvature += 0.7 * state->elapsedTime * (1 - speed / 2);
         // means right
         dir = 1;
     }
-    else if (State::key == 'a')
+    else if (state->key == 'a')
     {
-        curvature -= 0.7 * State::elapsedTime * (1 - State::carSpeed / 2);
+        curvature -= 0.7 * state->elapsedTime * (1 - speed / 2);
         // means left
         dir = 2;
     }
@@ -37,21 +43,32 @@ void Car::update()
         dir = 0;
     }
 
-    if (fabs(curvature - State::trackCurvature) >= 0.8f)
-        State::carSpeed -= 5 * State::elapsedTime;
-    if (State::carSpeed < 0)
+    if (fabs(curvature - road->totalCurvature) >= 0.8f)
     {
 
-        State::carSpeed = 0;
+        speed -= 5 * state->elapsedTime;
     }
-    if (State::carSpeed > 1)
+    if (speed < 0)
     {
 
-        State::carSpeed = 1;
+        speed = 0;
     }
-    State::distance += (70 * State::carSpeed) * State::elapsedTime;
+    else if (speed > 1)
+    {
 
-    x = State::WIDTH / 2 + ((int)(State::WIDTH * (curvature - State::trackCurvature)) / 2.0) - 4;
+        speed = 1;
+    }
+    state->distance += (70 * speed) * state->elapsedTime;
+
+    x = state->WIDTH / 2 + ((int)(state->WIDTH * (curvature - road->totalCurvature)) / 2.0) - 4;
+    if (x < 0)
+    {
+        x = 0;
+    }
+    else if (x > 91)
+    {
+        x = 91;
+    }
 }
 
 void Car::draw()

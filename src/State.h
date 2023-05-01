@@ -1,38 +1,29 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include <string>
+#include "Road.h"
 #include <vector>
-#include <utility>
-#include <list>
 #include <chrono>
-#include <cmath>
 
 using namespace std;
 
 class State
 {
 public:
-    static float elapsedTime;
-    static char key; // current key input
-    static vector<vector<int>> graphic;
+    char key; // current key input
+    float elapsedTime = 0;
+    vector<vector<int>> graphic = vector<vector<int>>(50, vector<int>(100, 5));
 
-    static float distance;         // Distance car has travelled around track
-    static float currentCurvature; // Current track curvature, lerped between track sections
-    static float trackCurvature;   // Accumulation of track curvature
-    static float trackDistance;    // Total distance of track
+    float distance = 0;       // Distance car has travelled around track
+    vector<float> lapTimes;   // List of previous lap times
+    float currentLapTime = 0; // Current lap time
 
-    static float carSpeed; // Current player speed
+    int WIDTH = 100;
+    int HEIGHT = 50;
 
-    static vector<pair<float, float>> vecTrack; // Track sections, sharpness of bend, length of section
+    void update();
 
-    static list<float> listLapTimes; // List of previous lap times
-    static float currentLapTime;     // Current lap time
-
-    static int WIDTH;
-    static int HEIGHT;
-
-    static void update();
+    Road *road;
 };
 
 #endif

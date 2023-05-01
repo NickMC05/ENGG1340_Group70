@@ -1,38 +1,32 @@
 #include "Map.h"
 #include "State.h"
-
-Map::Map(int width, int height)
-{
-    mapWidth = width;
-    mapHeight = height;
-}
+#include "Road.h"
 
 void Map::draw()
 {
-    vector<vector<int>> &graphic = State::graphic;
 
-    for (int y = 0; y < mapHeight / 2; y++)
+    for (int y = 0; y < state->HEIGHT / 2; y++)
     {
-        for (int x = 0; x < mapWidth; x++)
+        for (int x = 0; x < state->WIDTH; x++)
         {
 
-            float fPerspective = (float)y / (mapHeight / 2.0f);
+            float fPerspective = (float)y / (state->HEIGHT / 2.0f);
 
-            float fMiddlePoint = 0.5f + State::currentCurvature * powf((1.0f - fPerspective), 3);
-            float fRoadWidth = 0.1f + fPerspective * 0.88f;
+            float fMiddlePoint = 0.5f + road->currentCurvature * powf((1.0f - fPerspective), 3);
+            float fRoadWidth = 0.1f + fPerspective * 0.8f;
             float fClipWidth = fRoadWidth * 0.15f;
 
             fRoadWidth *= 0.5f;
 
-            int nLeftGrass = (fMiddlePoint - fRoadWidth - fClipWidth) * mapWidth;
-            int nLeftClip = (fMiddlePoint - fRoadWidth) * mapWidth;
-            int nRightClip = (fMiddlePoint + fRoadWidth) * mapWidth;
-            int nRightGrass = (fMiddlePoint + fRoadWidth + fClipWidth) * mapWidth;
+            int nLeftGrass = (fMiddlePoint - fRoadWidth - fClipWidth) * state->WIDTH;
+            int nLeftClip = (fMiddlePoint - fRoadWidth) * state->WIDTH;
+            int nRightClip = (fMiddlePoint + fRoadWidth) * state->WIDTH;
+            int nRightGrass = (fMiddlePoint + fRoadWidth + fClipWidth) * state->WIDTH;
 
-            int nRow = (mapHeight / 2) + y;
+            int nRow = (state->HEIGHT / 2) + y;
 
             int nClipColour = 0;
-            if (sinf(20.0f * powf(1.0f - fPerspective, 3) + State::distance * 0.1f) > 0.0f)
+            if (sinf(20.0f * powf(1.0f - fPerspective, 3) + state->distance * 0.1f) > 0.0f)
             {
                 nClipColour = 1;
             }
@@ -43,23 +37,23 @@ void Map::draw()
 
             if (x >= 0 && x < nLeftGrass)
             {
-                graphic[nRow][x] = 4;
+                state->graphic[nRow][x] = 4;
             }
             if (x >= nLeftGrass && x < nLeftClip)
             {
-                graphic[nRow][x] = nClipColour;
+                state->graphic[nRow][x] = nClipColour;
             }
             if (x >= nLeftClip && x < nRightClip)
             {
-                graphic[nRow][x] = 2;
+                state->graphic[nRow][x] = 2;
             }
             if (x >= nRightClip && x < nRightGrass)
             {
-                graphic[nRow][x] = nClipColour;
+                state->graphic[nRow][x] = nClipColour;
             }
             if (x >= nRightGrass && x < 200)
             {
-                graphic[nRow][x] = 4;
+                state->graphic[nRow][x] = 4;
             }
         }
     }

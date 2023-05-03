@@ -44,7 +44,7 @@ next round.
 In order to easily implement the design of the car and the background, we first designed them
 inside a .txt file using numbers.\
 Then, we extracted the values from the .txt files and converted the
-numbers to their dedicated colors using "init_pair" from the NCurses library.\ 
+numbers to their dedicated colors using "init_pair" from the NCurses library. 
 Designing the sprites through this method proved to be far more efficient and effective 
 than manually editing each pixel through code.
 

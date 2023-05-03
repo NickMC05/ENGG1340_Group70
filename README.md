@@ -21,12 +21,12 @@ Controls ->
 - "Q" - Quit the game (anytime)
 
 ## Features
-- Generation of random game sets or events
+- Generation of random game sets or events\
 The curvatures (turns) that are generated in the track were randomized.\
 By introducing randomization to the generation of track curvatures, each round will offer a unique experience with an entirely different course layout, adding to the game's replay value and excitement.
 
 - Data structures for storing game status\
--Classes
+-Classes\
 Object-Oriented Programming (Reduce Conflicts of Variables)\
 Store variables and method functions.\
 Improve the readability and maintainability of code.\
@@ -51,7 +51,7 @@ than manually editing each pixel through code.
 - Multiple Files\
 To enhance code organization, each class is stored in a separate file and later imported into the main file where they are utilized.
 ## Libraries:
-- NCurses -> 
+- NCurses ->\
 By utilizing this library, we were able to enhance the presentation of our game by rendering it with vibrant colored pixels instead of plain keyboard characters, resulting in a more visually appealing and intuitive user interface with improved overall design.
 
 ## Instructions:

@@ -8,7 +8,7 @@ TEAM MEMBERS:
 
 DESCRIPTION OF OUR GAME:
 Text-Based 3D-Racing Game->
--The goal of the game is to finish the racecourse in the shortest possible time. But be careful! 
+The goal of the game is to finish the racecourse in the shortest possible time. But be careful! 
 Going off track will significantly slow down the car, so make sure to stay on track, especially when 
 going around curvatures! 
 

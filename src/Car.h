@@ -9,6 +9,7 @@ class Car
 {
 public:
     float speed = 0; // Current player speed
+    float curvature = 0;
 
     void init();
     void update();
@@ -20,7 +21,6 @@ public:
 private:
     int dir = 0;
     int x, y = 36;
-    float curvature = 0;
 
     Sprite *straight;
     Sprite *left;

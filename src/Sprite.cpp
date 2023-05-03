@@ -2,7 +2,7 @@
 #include "State.h"
 #include <fstream>
 
-Sprite::Sprite(const char *path)
+void Sprite::init()
 {
     ifstream reader;
     reader.open(path);

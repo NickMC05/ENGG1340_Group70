@@ -3,7 +3,8 @@
 
 #include "State.h"
 #include "Sprite.h"
-
+#include "Road.h"
+#include "Car.h"
 class Background
 {
 public:
@@ -11,6 +12,7 @@ public:
     void draw();
 
     State *state;
+    Road *road;
 
 private:
     Sprite *sprite;

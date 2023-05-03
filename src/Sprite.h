@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <ncurses.h>
+#include <string>
 
 using namespace std;
 
@@ -11,7 +12,8 @@ class State;
 class Sprite
 {
 public:
-    Sprite(const char *path);
+    string path;
+    void init();
     void draw(int x, int y);
 
     State *state;

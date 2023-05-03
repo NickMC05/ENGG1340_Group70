@@ -22,31 +22,31 @@ Controls ->
 
 ## Features
 - Generation of random game sets or events
-The curvatures (turns) that are generated in the track were randomized.
+The curvatures (turns) that are generated in the track were randomized.\
 By introducing randomization to the generation of track curvatures, each round will offer a unique experience with an entirely different course layout, adding to the game's replay value and excitement.
 
 - Data structures for storing game status
--- Classes
-Object-Oriented Programming (Reduce Conflicts of Variables)
-Store variables and method functions.
-Improve the readability and maintainability of code.
--- Vectors 
-Store information of the distances and curvatures of each track section
-Store laptimes of each round of attempts.
+-- Classes\
+Object-Oriented Programming (Reduce Conflicts of Variables)\
+Store variables and method functions.\
+Improve the readability and maintainability of code.\
+-- Vectors\
+Store information of the distances and curvatures of each track section\
+Store laptimes of each round of attempts.\
 
-- Dynamic memory management-
+- Dynamic memory management
 After finishing every round, the values stored in the classes need to be reset
-to their default values. 
+to their default values.\
 To do this, we used the "new" function to allocate new memory for the classes to be used in the 
-next round.
+next round.\
 
 - File input/output
 In order to easily implement the design of the car and the background, we first designed them
-inside a .txt file using numbers. 
+inside a .txt file using numbers.\
 Then, we extracted the values from the .txt files and converted the
-numbers to their dedicated colors using "init_pair" from the NCurses library. 
+numbers to their dedicated colors using "init_pair" from the NCurses library.\ 
 Designing the sprites through this method proved to be far more efficient and effective 
-than manually editing each pixel through code.
+than manually editing each pixel through code.\
 
 - Multiple Files
 To enhance code organization, each class is stored in a separate file and later imported into the main file where they are utilized.

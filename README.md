@@ -1,20 +1,20 @@
 # ENGG1340_Group70
 TEAM MEMBERS:
-Nicholas Wilson Kurniawan 3036011720
-Dorjderem Namsraijav 3035962362 
-Richie Wilynnton 3036094332
-Guo Pengyu 3036105507
-Cheung Tsz Wing 3036067262
+-Nicholas Wilson Kurniawan 3036011720
+-Dorjderem Namsraijav 3035962362 
+-Richie Wilynnton 3036094332
+-Guo Pengyu 3036105507
+-Cheung Tsz Wing 3036067262
 
 DESCRIPTION OF OUR GAME:
 Text-Based 3D-Racing Game->
-The goal of the game is to finish the racecourse in the shortest possible time. But be careful! 
+-The goal of the game is to finish the racecourse in the shortest possible time. But be careful! 
 Going off track will significantly slow down the car, so make sure to stay on track, especially when 
 going around curvatures! 
 
-Player is able to steer the car left and right, and speed up/slow down the car.
+-Player is able to steer the car left and right, and speed up/slow down the car.
 
-Controls-
+-Controls-
 "A" - Steer Left
 "D" - Steer Right
 "W" - Speed up
@@ -23,12 +23,12 @@ Controls-
 
 Features:
 
-Generation of random game sets or events-
+-Generation of random game sets or events-
 The curvatures (turns) that are generated in the track were randomized.
 By introducing randomization to the generation of track curvatures, each round will offer a unique experience
 with an entirely different course layout, adding to the game's replay value and excitement.
 
-Data structures for storing game status-
+-Data structures for storing game status-
 Classes ->
 Object-Oriented Programming (Reduce Conflicts of Variables)
 Store variables and method functions.
@@ -38,13 +38,13 @@ Vectors ->
 Store information of the distances and curvatures of each track section
 Store laptimes of each   round of attempts.
 
-Dynamic memory management-
+-Dynamic memory management-
 After finishing every round, the values stored in the classes need to be reset
 to their default values. 
 To do this, we used the "new" function to allocate new memory for the classes to be used in the 
 next round.
 
-File input/output-
+-File input/output-
 In order to easily implement the design of the car and the background, we first designed them
 inside a .txt file using numbers. Then, we extracted the values from the .txt files and converted the
 numbers to their dedicated colors using "init_pair" from the NCurses library. 

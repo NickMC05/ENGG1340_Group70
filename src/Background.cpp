@@ -46,5 +46,9 @@ void Background::init()
 void Background::draw()
 {
     int a = (state->WIDTH / 2 + ((int)(state->WIDTH * road->totalCurvature) / 2)) % 120;
+    if (a < 0)
+    {
+        a = 120 + a;
+    }
     sprite[a].draw(0, 0);
 }

@@ -10,8 +10,21 @@ void Road::init()
     while (totalLength < length)
     {
         // random curvature
-        // higher chance for straighter road
-        float curvature = pow(50, (((float)(rand() % 50)) / 50) - 1);
+        float curvature;
+        if (state->difficulty == 1)
+        {
+            // higher chance for straighter road
+            curvature = pow(50000, (((float)(rand() % 50)) / 50) - 1);
+        }
+        else if (state->difficulty == 2)
+        {
+            curvature = pow(50, (((float)(rand() % 50)) / 50) - 1);
+        }
+        else
+        {
+            // higher chance for road with higher curvature
+            curvature = pow(5, (((float)(rand() % 50)) / 50) - 1);
+        }
 
         // bend left or right
         int sign = rand() % 2;

@@ -1,6 +1,8 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include "State.h"
+
 class Menu
 {
 public:
@@ -10,6 +12,7 @@ public:
     void home_screen(int input, int select, int max_choice);
     void options_screen(int select, bool choosing_mode_1, bool choosing_mode_2, int choice_1, int choice_2);
     void credits_screen();
+    State* state;
 
 private:
     int input;

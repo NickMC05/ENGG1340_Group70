@@ -25,11 +25,13 @@ void Game::init()
     init_pair(6, COLOR_YELLOW, COLOR_YELLOW);
     init_pair(7, COLOR_CYAN, COLOR_CYAN);
     init_pair(9, COLOR_BLACK, COLOR_BLACK);
+
+    state = new State();
     menu(); // Create menu
     nodelay(stdscr, true);
 
     // Allocating memory for actors
-    state = new State();
+    
     road = new Road();
     background = new Background();
     car = new Car();
@@ -82,6 +84,7 @@ void Game::menu()
 {
     // create menu object and run
     Menu menu;
+    menu.state = state;
     // if menu returns 1 it means user wants to exit
     if (menu.run() == 1)
     {

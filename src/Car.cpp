@@ -9,9 +9,28 @@ void Car::init()
     straight = new Sprite();
     left = new Sprite();
     right = new Sprite();
-    straight->path = "car.txt";
-    left->path = "car_left.txt";
-    right->path = "car_right.txt";
+
+    switch (state->carColor)
+    {
+    case 1:
+        straight->path = "assets/car.txt";
+        left->path = "assets/car_left.txt";
+        right->path = "assets/car_right.txt";
+        break;
+    case 2:
+        straight->path = "assets/car_y.txt";
+        left->path = "assets/car_left_y.txt";
+        right->path = "assets/car_right_y.txt";
+        break;
+    case 3:
+        straight->path = "assets/car_c.txt";
+        left->path = "assets/car_left_c.txt";
+        right->path = "assets/car_right_c.txt";
+        break;
+    default:
+        break;
+    }
+    
     straight->state = state;
     left->state = state;
     right->state = state;

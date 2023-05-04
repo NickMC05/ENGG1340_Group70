@@ -11,6 +11,7 @@ using namespace std;
 class State
 {
 public:
+    int carColor = 1;
     char key; // current key input
     float elapsedTime = 0;
     vector<vector<int>> graphic = vector<vector<int>>(50, vector<int>(100, 5));

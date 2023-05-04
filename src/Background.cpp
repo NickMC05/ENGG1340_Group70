@@ -9,7 +9,7 @@ void Background::init()
     int count = 120;
     sprite = new Sprite[120];
     ifstream fin;
-    fin.open("background.txt");
+    fin.open("assets/background.txt");
     string inputLine;
     vector<string> backgorundRaw;
     while (getline(fin, inputLine))

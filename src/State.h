@@ -18,7 +18,7 @@ public:
     float distance = 0;       // Distance car has travelled around track
     float best = 0;           // Fastest time in one loop
     float currentLapTime = 0; // Current lap time
-    string stats[3] = {"Best: ", "Finished: ", "Speed: "};
+    string stats[4] = {"Best: ", "Finished: ", "Time: ", "Speed: "};
     int endLine;
 
     int WIDTH = 100;

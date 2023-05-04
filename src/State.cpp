@@ -18,5 +18,6 @@ void State::update()
     endLine = distance - road->length + 25;
     float finished = distance / road->length * 100;
     stats[1] = "Finished: " + to_string(finished).substr(0, 5) + "%";
-    stats[2] = "Speed: " + to_string(car->speed / car->maxSpeed * 100).substr(0, 5) + "%";
+    stats[2] = "Time: " + to_string(currentLapTime);
+    stats[3] = "Speed: " + to_string(car->speed / car->maxSpeed * 100).substr(0, 5) + "%";
 }

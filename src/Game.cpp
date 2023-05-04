@@ -133,7 +133,7 @@ void Game::draw()
 
     // this will update all the pixels on the screen
     attron(COLOR_PAIR(5));
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         printw("%s", state->stats[i].c_str());
         for (int _ = 0; _ < state->WIDTH * 2 - state->stats[i].length(); _++)

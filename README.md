@@ -63,3 +63,4 @@ By utilizing this library, we were able to enhance the presentation of our game 
 1. "make"
 2. "./main"
 - After this, resize the terminal according to the size specified on the screen. If the terminal is already properly sized, the menu screen should pop up.
+- We recommend to check out the 'Optons' tab first, where you can choose the difficulty you want to play and the customize your car.

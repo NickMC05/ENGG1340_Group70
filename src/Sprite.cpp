@@ -19,7 +19,6 @@ void Sprite::init()
 }
 
 // update state->graphic value at x, y position with sprite color
-
 void Sprite::draw(int x, int y)
 {
     for (int i = 0; i < sHeight; i++)

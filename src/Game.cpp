@@ -6,6 +6,7 @@
 #include <ncurses.h>
 #include <string>
 #include <cmath>
+#include <ctime>
 
 void Game::init()
 {
@@ -29,6 +30,9 @@ void Game::init()
     state = new State();
     menu(); // Create menu
     nodelay(stdscr, true);
+
+    // set random seed
+    srand(time(NULL));
 
     // Allocating memory for actors
     

@@ -36,6 +36,7 @@ void Road::init()
 }
 void Road::update()
 {
+    // Determine the offset of the car from the start of the current road section
     float offset = 0;
     int index = 0;
 
@@ -44,8 +45,11 @@ void Road::update()
         offset += sections[index].second;
         index++;
     }
+    // Determine the target curvature of the current road section
     float targetCurvature = sections[index - 1].first;
+    // Calculate the change in curvature based on the difference between the current and target curvatures
     float trackCurveDiff = (targetCurvature - currentCurvature) * state->elapsedTime * car->speed;
     currentCurvature += trackCurveDiff;
+    // Add the change in curvature to the total curvature so far
     totalCurvature += (currentCurvature)*state->elapsedTime * car->speed;
 }

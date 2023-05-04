@@ -170,6 +170,7 @@ int Menu::run()
                             options_screen(selection, false, true, difficulty, pick);
                         }
                         car_color = pick; 
+                        state->carColor = car_color;
                     }
                     else if (selection == 3)
                     {

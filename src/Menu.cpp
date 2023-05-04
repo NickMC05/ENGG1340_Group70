@@ -88,6 +88,7 @@ int Menu::run()
             erase();
             return 0;
         }
+
         else if (current_page == 3)
         {
             int selection = 1; // 1 difficulty, 2 car color, 3 go back
@@ -578,7 +579,7 @@ void Menu::options_screen(int select, bool choosing_mode_1, bool choosing_mode_2
         mvprintw(42, 20, "||   \\_| \\_\\___|\\__|\\__,_|_|  |_| |_|   ||");
         mvprintw(43, 20, "||||                                  ||||");
     }
-    state->carColor = car_color;
+    
     attroff(COLOR_PAIR(1));
     move(0, 0);
     refresh();

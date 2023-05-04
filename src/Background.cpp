@@ -23,10 +23,8 @@ void Background::init()
         fout << 100 << ' ' << 25 << endl;
         for (string line : backgorundRaw)
         {
-
             if (a < 39)
             {
-
                 fout << line.substr(a, 199);
             }
             else

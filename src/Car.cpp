@@ -28,7 +28,7 @@ void Car::update()
     }
     else if (state->key == 's')
     {
-        speed -= state->elapsedTime;
+        speed -= 2 * state->elapsedTime;
     }
     else if (state->key == 'd')
     {

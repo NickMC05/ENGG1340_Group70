@@ -12,7 +12,7 @@ Menu.o: src/Menu.cpp src/Menu.h
 	g++ -std=c++11 -c src/Menu.cpp 
 State.o: src/State.cpp src/State.h src/Road.h
 	g++ -std=c++11 -c src/State.cpp 
-Game.o: src/Game.cpp src/Game.h src/Menu.h src/State.h src/Road.h src/Car.h
+Game.o: src/Game.cpp src/Game.h src/Menu.h src/State.h src/Road.h src/Car.h src/Map.h
 	g++ -std=c++11 -c src/Game.cpp 
 Sprite.o: src/Sprite.cpp src/Sprite.h src/State.h
 	g++ -std=c++11 -c src/Sprite.cpp 

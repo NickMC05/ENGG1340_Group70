@@ -13,9 +13,10 @@ class Road
 public:
     float currentCurvature = 0;          // Current road curvature, lerped between track sections
     float totalCurvature = 0;            // Accumulation of track curvature
-    float length = 5000;                    // Total distance of track
+    float length = 5000;                 // Total distance of track
     vector<pair<float, float>> sections; // Track sections, sharpness of bend, length of section
 
+    void init(); // this functions controls the length and curvature of the track
     void update();
 
     State *state;

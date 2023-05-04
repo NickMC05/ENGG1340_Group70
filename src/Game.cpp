@@ -5,7 +5,6 @@
 #include "Car.h"
 #include <ncurses.h>
 #include <string>
-#include <iostream>
 #include <cmath>
 
 void Game::init()
@@ -40,6 +39,7 @@ void Game::init()
     state->car = car;
     road->state = state;
     road->car = car;
+    road->init();
     map->state = state;
     map->road = road;
     car->state = state;
@@ -52,9 +52,6 @@ void Game::init()
 
     // Background::init() will load the sprites from txt file
     background->init();
-
-    // generate the random track
-    createTrack();
 
     // clock will be used to calculate point and track of the game
     lastFrameTime = std::chrono::system_clock::now();
@@ -79,35 +76,6 @@ void Game::run()
         draw();
     }
     end();
-}
-void Game::createTrack()
-{
-    float totalLength = 0;
-    while (totalLength < road->length)
-    {
-        // random curvature
-        // higher chance for straighter road
-        float curvature = pow(50, (((float)(rand() % 50)) / 50) - 1);
-
-        // bend left or right
-        int sign = rand() % 2;
-        if (sign == 1)
-        {
-            curvature *= -1;
-        }
-
-        // random length
-        float length = rand() % 500;
-        // total length is constant
-        if (length > road->length - totalLength)
-        {
-            length = road->length - totalLength;
-        }
-        road->sections.push_back(make_pair(curvature, length));
-
-        // record total pushed length
-        totalLength += length;
-    }
 }
 
 void Game::menu()

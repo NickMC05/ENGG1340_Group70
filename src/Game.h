@@ -15,6 +15,7 @@ class Game
 public:
     // Call this method to start the game
     void run();
+
 private:
     // init method will be called at the start of the game
     // load resources or things that will be done only once here
@@ -29,8 +30,6 @@ private:
     void draw();
     // ends the game, this will free up the memory and end the game
     void end();
-    // this functions controls the length and curvature of the track 
-    void createTrack();
 
     // this boolean indicates whether game is running or not
     // if you set it false then game loop will stop

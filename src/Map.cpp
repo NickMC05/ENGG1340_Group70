@@ -39,19 +39,27 @@ void Map::draw()
             {
                 state->graphic[nRow][x] = 4;
             }
-            if (x >= nLeftGrass && x < nLeftClip)
+            else if (x >= nLeftGrass && x < nLeftClip)
             {
                 state->graphic[nRow][x] = nClipColour;
             }
-            if (x >= nLeftClip && x < nRightClip)
+            else if (x >= nLeftClip && x < nRightClip && y == state->endLine && x % 2 == 0)
+            {
+                state->graphic[nRow][x] = 5;
+            }
+            else if (x >= nLeftClip && x < nRightClip && state->endLine == y && x % 2 != 0)
+            {
+                state->graphic[nRow][x] = 9;
+            }
+            else if (x >= nLeftClip && x < nRightClip)
             {
                 state->graphic[nRow][x] = 2;
             }
-            if (x >= nRightClip && x < nRightGrass)
+            else if (x >= nRightClip && x < nRightGrass)
             {
                 state->graphic[nRow][x] = nClipColour;
             }
-            if (x >= nRightGrass && x < 200)
+            else if (x >= nRightGrass && x < 200)
             {
                 state->graphic[nRow][x] = 4;
             }

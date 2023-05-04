@@ -19,6 +19,7 @@ public:
     float best = 0;           // Fastest time in one loop
     float currentLapTime = 0; // Current lap time
     string stats[3] = {"Best: ", "Finished: ", "Speed: "};
+    int endLine;
 
     int WIDTH = 100;
     int HEIGHT = 50;

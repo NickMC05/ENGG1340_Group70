@@ -68,7 +68,7 @@ void Game::createTrack()
     {
         // random curvature
         // higher chance for straighter road
-        float curvature = pow(5000, (((float)(rand() % 50)) / 50) - 1);
+        float curvature = pow(50, (((float)(rand() % 50)) / 50) - 1);
 
         // bend left or right
         int sign = rand() % 2;

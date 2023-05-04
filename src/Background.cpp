@@ -18,7 +18,6 @@ void Background::init()
     }
     for (int a = 0; a < 239; a += 2)
     {
-        // int a = 238;
         ofstream fout;
         fout.open("temp.txt");
         fout << 100 << ' ' << 25 << endl;
@@ -39,6 +38,7 @@ void Background::init()
         sprite[a / 2].path = "temp.txt";
         sprite[a / 2].state = state;
         sprite[a / 2].init();
+        fout.close();
         remove("temp.txt");
     }
 }

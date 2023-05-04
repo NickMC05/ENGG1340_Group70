@@ -12,6 +12,7 @@ void Sprite::init()
     {
         pixel.push_back(val);
     }
+    reader.close();
 }
 
 void Sprite::draw(int x, int y)

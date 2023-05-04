@@ -59,10 +59,10 @@ void Car::update()
 
         speed = 0;
     }
-    else if (speed > 2)
+    else if (speed > 1)
     {
 
-        speed = 2;
+        speed = 1;
     }
     state->distance += (70 * speed) * state->elapsedTime;
 

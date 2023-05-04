@@ -2,7 +2,7 @@
 #include "State.h"
 #include <fstream>
 
-Sprite::Sprite(const char *path)
+void Sprite::init()
 {
     ifstream reader;
     reader.open(path);
@@ -12,6 +12,7 @@ Sprite::Sprite(const char *path)
     {
         pixel.push_back(val);
     }
+    reader.close();
 }
 
 void Sprite::draw(int x, int y)

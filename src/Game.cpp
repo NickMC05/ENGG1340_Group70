@@ -6,6 +6,7 @@
 #include <ncurses.h>
 #include <string>
 #include <iostream>
+#include <cmath>
 
 void Game::init()
 {
@@ -36,6 +37,7 @@ void Game::init()
     car->road = road;
     car->init();
     background->state = state;
+    background->road = road;
     background->init();
     createTrack();
     lastFrameTime = std::chrono::system_clock::now();
@@ -61,20 +63,32 @@ void Game::run()
 }
 void Game::createTrack()
 {
-    // should be random
-    road->sections.push_back(make_pair(0.0f, 10.0f));
-    road->sections.push_back(make_pair(0.0f, 200.0f));
-    road->sections.push_back(make_pair(-1.0f, 200.0f));
-    road->sections.push_back(make_pair(0.0f, 400.0f));
-    road->sections.push_back(make_pair(-1.0f, 100.0f));
-    road->sections.push_back(make_pair(0.0f, 200.0f));
-    road->sections.push_back(make_pair(-1.0f, 200.0f));
-    road->sections.push_back(make_pair(1.0f, 200.0f));
-    road->sections.push_back(make_pair(0.0f, 200.0f));
-    road->sections.push_back(make_pair(0.2f, 500.0f));
-    road->sections.push_back(make_pair(0.0f, 200.0f));
-    for (auto t : road->sections)
-        road->length += t.second;
+    float totalLength = 0;
+    while (totalLength < road->length)
+    {
+        // random curvature
+        // higher chance for straighter road
+        float curvature = pow(50, (((float)(rand() % 50)) / 50) - 1);
+
+        // bend left or right
+        int sign = rand() % 2;
+        if (sign == 1)
+        {
+            curvature *= -1;
+        }
+
+        // random length
+        float length = rand() % 500;
+        // total length is constant
+        if (length > road->length - totalLength)
+        {
+            length = road->length - totalLength;
+        }
+        road->sections.push_back(make_pair(curvature, length));
+
+        // record total pushed length
+        totalLength += length;
+    }
 }
 
 void Game::menu()

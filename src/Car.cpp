@@ -6,12 +6,18 @@
 
 void Car::init()
 {
-    straight = new Sprite("car.txt");
-    left = new Sprite("car_left.txt");
-    right = new Sprite("car_right.txt");
+    straight = new Sprite();
+    left = new Sprite();
+    right = new Sprite();
+    straight->path = "car.txt";
+    left->path = "car_left.txt";
+    right->path = "car_right.txt";
     straight->state = state;
     left->state = state;
     right->state = state;
+    straight->init();
+    left->init();
+    right->init();
 }
 
 void Car::update()

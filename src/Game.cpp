@@ -18,7 +18,7 @@ void Game::init()
     init_pair(2, COLOR_BLUE, COLOR_BLUE);
     init_pair(3, COLOR_MAGENTA, COLOR_MAGENTA);
     init_pair(4, COLOR_GREEN, COLOR_GREEN);
-    init_pair(5, COLOR_WHITE, COLOR_WHITE);
+    init_pair(5, COLOR_RED, COLOR_WHITE);
     init_pair(6, COLOR_YELLOW, COLOR_YELLOW);
     init_pair(7, COLOR_CYAN, COLOR_CYAN);
     init_pair(9, COLOR_BLACK, COLOR_BLACK);
@@ -29,6 +29,7 @@ void Game::init()
     car = new Car();
     map = new Map();
     state->road = road;
+    state->car = car;
     road->state = state;
     road->car = car;
     map->state = state;
@@ -141,7 +142,18 @@ void Game::draw()
     car->draw();
 
     // this will update all the pixels on the screen
-    for (int i = 0; i < state->HEIGHT; i++)
+    attron(COLOR_PAIR(5));
+    for (int i = 0; i < 3; i++)
+    {
+        printw("%s", state->stats[i].c_str());
+        for (int _ = 0; _ < state->WIDTH * 2 - state->stats[i].length(); _++)
+        {
+            printw(" ");
+        }
+        printw("\n");
+    }
+    attroff(COLOR_PAIR(5));
+    for (int i = 4; i < state->HEIGHT; i++)
     {
         for (int j = 0; j < state->WIDTH; j++)
         {

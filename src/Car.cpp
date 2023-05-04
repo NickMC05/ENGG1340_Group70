@@ -59,14 +59,14 @@ void Car::update()
 
         speed = 0;
     }
-    else if (speed > 1)
+    else if (speed > maxSpeed)
     {
 
-        speed = 1;
+        speed = maxSpeed;
     }
-    state->distance += (70 * speed) * state->elapsedTime;
+    state->distance += 70 * speed * state->elapsedTime;
 
-    x = state->WIDTH / 2 + ((int)(state->WIDTH * (curvature - road->totalCurvature)) / 2.0) - 4;
+    x = state->WIDTH / 2 + ((int)(state->WIDTH * (curvature - road->totalCurvature)) / 2) - 4;
     if (x < 0)
     {
         x = 0;

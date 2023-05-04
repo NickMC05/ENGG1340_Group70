@@ -2,9 +2,10 @@
 #define STATE_H
 
 #include "Road.h"
+#include "Car.h"
+#include <string>
 #include <vector>
 #include <chrono>
-
 using namespace std;
 
 class State
@@ -15,8 +16,9 @@ public:
     vector<vector<int>> graphic = vector<vector<int>>(50, vector<int>(100, 5));
 
     float distance = 0;       // Distance car has travelled around track
-    vector<float> lapTimes;   // List of previous lap times
+    float best = 0;           // Fastest time in one loop
     float currentLapTime = 0; // Current lap time
+    string stats[3] = {"Best: ", "Finished: ", "Speed: "};
 
     int WIDTH = 100;
     int HEIGHT = 50;
@@ -24,6 +26,7 @@ public:
     void update();
 
     Road *road;
+    Car *car;
 };
 
 #endif

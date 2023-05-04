@@ -10,6 +10,7 @@ class Car
 public:
     float speed = 0; // Current player speed
     float curvature = 0;
+    int maxSpeed = 2;
 
     void init();
     void update();

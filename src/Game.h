@@ -12,12 +12,10 @@
 
 class Game
 {
-
 public:
-    void init();
     void run();
-
 private:
+    void init();
     void menu();
     void update();
     void draw();
@@ -26,8 +24,8 @@ private:
 
     bool gameRunning = true;
 
-    std::chrono::_V2::system_clock::time_point lastFrameTime;
-    std::chrono::_V2::steady_clock::time_point lastKeyTime; // count accumulate ERR from getch()
+    std::chrono::system_clock::time_point lastFrameTime;
+    std::chrono::steady_clock::time_point lastKeyTime; // count accumulate ERR from getch()
 
     Car *car;
     Background *background;

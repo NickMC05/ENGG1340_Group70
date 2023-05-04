@@ -15,6 +15,7 @@ Text-Based 3D-Racing Game->
 - Players can steer the car left and right, and speed up/slow down the car.
 - Be careful! Going off track will significantly slow down the car, so make sure to stay on track, especially when going around curvatures!
 - The higher the speed, the slower the steering, so manually slowing down is sometimes uesful to avoid going off track.
+- Choose the color of the car and the difficulty in options.
 
 
 Controls ->

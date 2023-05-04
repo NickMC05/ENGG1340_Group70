@@ -2,6 +2,9 @@
 #include "State.h"
 #include <fstream>
 
+// We will be using ifstream to load the file
+// All sprite file should start with width then height
+// Then it should have width * height integers which is color value
 void Sprite::init()
 {
     ifstream reader;
@@ -14,6 +17,8 @@ void Sprite::init()
     }
     reader.close();
 }
+
+// update state->graphic value at x, y position with sprite color
 
 void Sprite::draw(int x, int y)
 {

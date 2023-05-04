@@ -1,10 +1,7 @@
 #include "Menu.h"
 #include <ncurses.h>
 #include <sys/ioctl.h>
-#include <stdio.h>
-#include <cstdlib>
 #include <unistd.h>
-#include <locale.h>
 
 Menu::Menu()
 {
@@ -130,24 +127,22 @@ void Menu::loading_screen()
     attroff(COLOR_PAIR(1));
     move(0, 0);
     refresh();
+    attron(COLOR_PAIR(1));
     for (int i = 0; i <= 80; i++)
     {
         for (int j = 0; j < i; j++)
         {
-            attron(COLOR_PAIR(3));
             mvprintw(28, j + 60, "#");
-            attroff(COLOR_PAIR(3));
         }
         for (int j = i; j < 80; j++)
         {
-            attron(COLOR_PAIR(2));
             mvprintw(28, j + 60, "_");
-            attroff(COLOR_PAIR(2));
         }
-        usleep(30 * (80 - i) * (80 - i));
+        usleep((80 - i) * (80 - i));
         move(0, 0);
         refresh();
     }
+    attroff(COLOR_PAIR(1));
     usleep(700000);
 }
 
@@ -213,7 +208,7 @@ void Menu::home_screen(int input, int select, int max_choice)
     mvprintw(47, 30, "           /_____/_/|_/_/\\__/");
     attroff(COLOR_PAIR(1));
 
-    attron(COLOR_PAIR(2));
+    attron(COLOR_PAIR(1));
     switch (select)
     {
     case 1:
@@ -247,7 +242,7 @@ void Menu::home_screen(int input, int select, int max_choice)
         mvprintw(47, 30, "/_/_/      /_____/_/|_/_/\\__/");
         break;
     }
-    attroff(COLOR_PAIR(2));
+    attroff(COLOR_PAIR(1));
 
     move(0, 0);
     refresh();

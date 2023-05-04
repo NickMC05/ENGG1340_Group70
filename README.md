@@ -9,9 +9,13 @@
 
 ## Game Description:
 Text-Based 3D-Racing Game->
-- The goal of the game is to finish the racecourse in the shortest possible time.
--  Players can steer the car left and right, and speed up/slow down the car
-- Be careful! Going off track will significantly slow down the car, so make sure to stay on track, especially when going around curvatures! 
+- The goal of the game is to finish one loop in the shortest possible time.
+- The track of each game is different.
+- The track will be looped forever in one game, the best record of one loop will be shown.
+- Players can steer the car left and right, and speed up/slow down the car.
+- Be careful! Going off track will significantly slow down the car, so make sure to stay on track, especially when going around curvatures!
+- The higher the speed, the slower the steering, so manually slowing down is sometimes uesful to avoid going off track.
+
 
 Controls ->
 - "A" - Steer Left
@@ -23,7 +27,7 @@ Controls ->
 ## Features
 - Generation of random game sets or events\
 The curvatures (turns) that are generated in the track were randomized.\
-By introducing randomization to the generation of track curvatures, each round will offer a unique experience with an entirely different course layout, adding to the game's replay value and excitement.
+By introducing randomization to the generation of track curvatures, each game will offer a unique experience with an entirely different course layout, adding to the game's replay value and excitement.
 
 - Data structures for storing game status\
 -Classes\

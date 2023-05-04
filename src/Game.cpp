@@ -17,8 +17,7 @@ void Game::init()
     initscr();
     start_color();
     noecho();
-    nodelay(stdscr, true);
-    init_pair(1, COLOR_RED, COLOR_RED);
+    init_pair(1, COLOR_WHITE, COLOR_RED);
     init_pair(2, COLOR_BLUE, COLOR_BLUE);
     init_pair(3, COLOR_MAGENTA, COLOR_MAGENTA);
     init_pair(4, COLOR_GREEN, COLOR_GREEN);
@@ -26,6 +25,8 @@ void Game::init()
     init_pair(6, COLOR_YELLOW, COLOR_YELLOW);
     init_pair(7, COLOR_CYAN, COLOR_CYAN);
     init_pair(9, COLOR_BLACK, COLOR_BLACK);
+    menu(); // Create menu
+    nodelay(stdscr, true);
 
     // Allocating memory for actors
     state = new State();
@@ -60,7 +61,6 @@ void Game::init()
 void Game::run()
 {
     init();
-    // menu(); // Create menu
 
     // Start the game
     while (gameRunning)
@@ -85,8 +85,7 @@ void Game::menu()
     // if menu returns 1 it means user wants to exit
     if (menu.run() == 1)
     {
-        end();
-        return;
+        gameRunning = false;
     };
 }
 

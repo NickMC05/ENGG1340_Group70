@@ -4,7 +4,6 @@
 
 void Map::draw()
 {
-
     for (int y = 0; y < state->HEIGHT / 2; y++)
     {
         for (int x = 0; x < state->WIDTH; x++)

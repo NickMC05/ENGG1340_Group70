@@ -13,7 +13,7 @@ class State
 public:
     int carColor = 1;
     char key; // current key input
-    float elapsedTime = 0;
+    float elapsedTime = 0;    // time between frame, aka deltaTime
     vector<vector<int>> graphic = vector<vector<int>>(50, vector<int>(100, 5));
 
     float distance = 0;       // Distance car has travelled around track

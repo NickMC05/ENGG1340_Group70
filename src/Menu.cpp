@@ -10,7 +10,8 @@ Menu::Menu()
 int Menu::run()
 {
     printw("Before playing the game, please make sure that the terminal size is enough for the game to be printed.\n");
-    printw("The minimum requirement of the terminal size is 200x50.\n");
+    printw("The minimum requirement of the terminal size is 201x50.\n");
+    printw("You can decrease font size to increase terminal size.\n");
     printw("Press any key to continue.");
     while ((input = getch()) != KEY_F(1))
     {
@@ -18,14 +19,15 @@ int Menu::run()
         struct winsize w;
         ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
         erase();
-        if (w.ws_row >= 50 && w.ws_col >= 200)
+        if (w.ws_row >= 50 && w.ws_col >= 201)
         { // Scrren size is enough
             break;
         }
         else
         { // Not yet
             printw("Before playing the game, please make sure that the terminal size is enough for the game to be printed.\n");
-            printw("The minimum requirement of the terminal size is 200x60.\n\n");
+            printw("The minimum requirement of the terminal size is 201x50.\n");
+            printw("You can decrease font size to increase terminal size.\n\n");
             printw("Current terminal size: %dx%d", w.ws_col, w.ws_row);
         }
     }

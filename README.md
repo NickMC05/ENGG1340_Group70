@@ -66,5 +66,5 @@ By utilizing this library, we were able to enhance the presentation of our game 
 2. "./main"
 - After this, resize the terminal according to the size specified on the screen. If the terminal is already properly sized, the menu screen should pop up.
 - We recommend to check out the 'Optons' tab first, where you can choose the difficulty you want to play in and the customize your car.
-- Go to "Options" to change the difficulty and the color of he car using "w", "a", "s", "D" and "Enter"
-- Return and starte playing the game
+- Go to "Options" to change the difficulty and the color of he car using "w", "a", "s", "d" and "Enter"
+- Return and start playing the game

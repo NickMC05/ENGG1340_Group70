@@ -31,7 +31,7 @@ void Car::init()
     default:
         break;
     }
-    
+
     straight->state = state;
     left->state = state;
     right->state = state;
@@ -58,20 +58,20 @@ void Car::update()
     else if (state->key == 'd')
     {
         // We multiply by elapsedTime so car moves independent from frame rate
-        // (1 - speed / 2) scales the change in curvature based on the current 
-        // speed of the car. As the speed of the car increases, the change in curvature 
+        // (1 - speed / 2) scales the change in curvature based on the current
+        // speed of the car. As the speed of the car increases, the change in curvature
         // becomes smaller, which allows the car to handle high speeds more smoothly.
-        curvature += 0.7 * state->elapsedTime * (1 - speed / 2);
+        curvature += 0.7 * state->elapsedTime * (1.2 - speed / 2);
         // means right
         dir = 1;
     }
     else if (state->key == 'a')
     {
         // We multiply by elapsedTime so car moves independent from frame rate
-        // (1 - speed / 2) scales the change in curvature based on the current 
-        // speed of the car. As the speed of the car increases, the change in curvature 
+        // (1 - speed / 2) scales the change in curvature based on the current
+        // speed of the car. As the speed of the car increases, the change in curvature
         // becomes smaller, which allows the car to handle high speeds more smoothly.
-        curvature -= 0.7 * state->elapsedTime * (1 - speed / 2);
+        curvature -= 0.7 * state->elapsedTime * (1.2 - speed / 2);
         // means left
         dir = 2;
     }

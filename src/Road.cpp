@@ -18,7 +18,7 @@ void Road::init()
         }
         else if (state->difficulty == 2)
         {
-            curvature = pow(50, (((float)(rand() % 50)) / 50) - 1);
+            curvature = pow(500, (((float)(rand() % 50)) / 50) - 1);
         }
         else
         {
@@ -34,7 +34,7 @@ void Road::init()
         }
 
         // random length
-        float l = rand() % 500;
+        float l = rand() % 400 + 100;
         // total length is constant
         if (l > length - totalLength)
         {

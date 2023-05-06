@@ -125,3 +125,10 @@ void Car::draw()
         straight->draw(x, y);
     }
 }
+
+Car::~Car()
+{
+    delete straight;
+    delete left;
+    delete right;
+}

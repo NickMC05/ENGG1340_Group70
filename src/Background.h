@@ -8,6 +8,7 @@
 class Background
 {
 public:
+    ~Background();
     void init();
     void draw();
 

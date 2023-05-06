@@ -64,3 +64,8 @@ void Background::draw()
     // 0,0 is top left of the screen
     sprite[a].draw(0, 0);
 }
+
+Background::~Background()
+{
+    delete[] sprite;
+}

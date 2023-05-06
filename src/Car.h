@@ -8,6 +8,7 @@
 class Car
 {
 public:
+    ~Car();
     float speed = 0; // Current player speed
     float curvature = 0;
     int maxSpeed = 2;

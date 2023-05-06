@@ -175,8 +175,13 @@ void Game::draw()
 
 void Game::end()
 {
-    // todo: savefile
-
-    // end
+    //close window
     endwin();
+
+    //free up memory
+    delete car;
+    delete road;
+    delete map;
+    delete state;
+    delete background;
 }

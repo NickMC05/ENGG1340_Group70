@@ -15,7 +15,6 @@ Text-Based 3D-Racing Game->
 - Players can steer the car left and right, and speed up/slow down the car.
 - Be careful! Going off track will significantly slow down the car, so make sure to stay on track, especially when going around curvatures!
 - The higher the speed, the slower the steering, so manually slowing down is sometimes uesful to avoid going off track.
-- Choose the color of the car and the difficulty in options.
 
 
 Controls ->
@@ -29,6 +28,8 @@ Controls ->
 - Generation of random game sets or events\
 The curvatures (turns) that are generated in the track were randomized.\
 By introducing randomization to the generation of track curvatures, each game will offer a unique experience with an entirely different course layout, adding to the game's replay value and excitement.
+
+- Options for color and difficulty.
 
 - Data structures for storing game status\
 -Classes\
@@ -65,3 +66,5 @@ By utilizing this library, we were able to enhance the presentation of our game 
 2. "./main"
 - After this, resize the terminal according to the size specified on the screen. If the terminal is already properly sized, the menu screen should pop up.
 - We recommend to check out the 'Optons' tab first, where you can choose the difficulty you want to play in and the customize your car.
+- Go to "Options" to change the difficulty and the color of he car using "w", "a", "s", "D" and "Enter"
+- Return and starte playing the game
